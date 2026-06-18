@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trennungskompass – Orientierung im Schweizer Familienrecht</title>
+<meta name="description" content="Verständliche Orientierung zum Schweizer Scheidungs- und Familienrecht: Chat, Standortbestimmung und Checkliste. Keine Rechtsberatung." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- n8n Chat widget -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#233240;
+    --ink-2:#16222e;
+    --teal:#1f8a82;
+    --teal-deep:#14706e;
+    --paper:#f5f7f8;
+    --card:#ffffff;
+    --text:#2a3640;
+    --muted:#63727d;
+    --line:#e4e9ec;
+    --amber-ink:#8f5421;
+    --amber-bg:#fbf3ec;
+    --amber-line:#f0e0d2;
+
+    /* n8n chat theming */
+    --chat--color-primary:#1f8a82;
+    --chat--color-primary-shade-50:#19756e;
+    --chat--color-primary-shade-100:#14706e;
+    --chat--color-secondary:#233240;
+    --chat--color-secondary-shade-50:#1b2a36;
+    --chat--color-white:#ffffff;
+    --chat--color-light:#f5f7f8;
+    --chat--color-medium:#e4e9ec;
+    --chat--color-dark:#233240;
+    --chat--color-typing:#63727d;
+    --chat--header--background:#233240;
+    --chat--header--color:#ffffff;
+    --chat--heading--font-size:1.1rem;
+    --chat--subtitle--font-size:.8rem;
+    --chat--message--bot--background:#ffffff;
+    --chat--message--user--background:#1f8a82;
+    --chat--message--user--color:#ffffff;
+    --chat--message--bot--color:#2a3640;
+    --chat--message--font-size:.95rem;
+    --chat--border-radius:.6rem;
+    --chat--toggle--background:#1f8a82;
+    --chat--toggle--hover--background:#19756e;
+    --chat--window--width:100%;
+    --chat--window--height:100%;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-anchor:none}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--text);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* ---- Nav ---- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,247,248,.85);
+    backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--ink);font-size:1.05rem}
+  .brand .mark{
+    width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+    background:var(--ink);color:#fff;font-size:15px
+  }
+  .nav-right{display:flex;align-items:center;gap:20px}
+  .langs{font-size:.8rem;color:var(--muted);letter-spacing:.04em}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;justify-content:center;
+    font-weight:600;font-size:.95rem;border-radius:999px;border:0;cursor:pointer;
+    padding:11px 22px;text-decoration:none;transition:transform .12s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--teal);color:#fff}
+  .btn-primary:hover{background:var(--teal-deep)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid #c4cfd6}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .btn-light{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-light:hover{border-color:#c4cfd6}
+  .btn:focus-visible{outline:3px solid rgba(31,138,130,.45);outline-offset:2px}
+  .nav-cta{padding:9px 18px}
+
+  /* ---- Hero (kompakt, einspaltig) ---- */
+  header.hero{position:relative;overflow:hidden}
+  .hero-inner{padding:54px 0 28px;max-width:780px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--teal-deep);margin-bottom:18px
+  }
+  .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--teal)}
+  h1{
+    font-family:'Fraunces',Georgia,serif;font-weight:500;
+    font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.08;color:var(--ink);
+    letter-spacing:-.01em;margin-bottom:20px
+  }
+  h1 em{font-style:italic;color:var(--teal-deep)}
+  .lede{font-size:1.12rem;color:#4a5862;max-width:34em;margin-bottom:30px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+  .trust{display:flex;flex-wrap:wrap;gap:18px;font-size:.85rem;color:var(--muted)}
+  .trust span{display:inline-flex;align-items:center;gap:7px}
+  .trust .dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+
+  /* chat panel (eigener, breiter Abschnitt; Scroll isoliert) */
+  .chat-section{padding:4px 0 60px;scroll-margin-top:84px}
+  .chat-shell{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    box-shadow:0 24px 60px -28px rgba(20,40,55,.4);overflow:hidden;
+    height:clamp(520px,82vh,820px);display:flex;flex-direction:column;
+    overscroll-behavior:contain;contain:layout
+  }
+  #chat-embed{flex:1;min-height:0;position:relative;overscroll-behavior:contain}
+  /* n8n fullscreen widget innerhalb der abgerundeten Schale halten */
+  #chat-embed .chat-layout{height:100%}
+  #chat-embed [class*="messages"]{overscroll-behavior:contain}
+
+  /* ---- Sections ---- */
+  section{padding:72px 0}
+  .section-head{max-width:34em;margin-bottom:40px}
+  .section-head h2{
+    font-family:'Fraunces',Georgia,serif;font-weight:500;
+    font-size:clamp(1.6rem,3vw,2.2rem);color:var(--ink);line-height:1.15;letter-spacing:-.01em
+  }
+  .section-head p{color:var(--muted);margin-top:10px}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;
+    transition:transform .15s ease, box-shadow .2s ease;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -26px rgba(20,40,55,.35)}
+  .card .ico{
+    width:46px;height:46px;border-radius:12px;background:#e7f3f1;color:var(--teal-deep);
+    display:grid;place-items:center;font-size:22px;margin-bottom:16px
+  }
+  .card h3{font-size:1.12rem;color:var(--ink);margin-bottom:8px;font-weight:600}
+  .card p{font-size:.95rem;color:var(--muted)}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+  .step{position:relative;padding-top:8px}
+  .step .n{
+    width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;
+    display:grid;place-items:center;font-weight:600;font-size:.95rem;margin-bottom:14px
+  }
+  .step h4{color:var(--ink);font-size:1.02rem;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.93rem}
+
+  /* form CTA band */
+  .band{
+    background:linear-gradient(135deg,var(--ink),var(--ink-2));border-radius:20px;
+    padding:44px;color:#fff;display:grid;grid-template-columns:1.4fr auto;gap:28px;align-items:center
+  }
+  .band h2{font-family:'Fraunces',serif;font-weight:500;font-size:1.7rem;margin-bottom:8px;color:#fff}
+  .band p{color:#b9c7d1;max-width:34em}
+
+  /* safety + advice strip */
+  .safety{
+    background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:14px;
+    padding:20px 24px;display:flex;gap:14px;align-items:flex-start;color:var(--amber-ink);font-size:.93rem
+  }
+  .safety strong{display:block;margin-bottom:2px}
+  .advice{
+    margin-top:18px;border:1px solid var(--line);border-radius:14px;background:#fff;
+    padding:20px 24px;display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap
+  }
+  .advice p{color:var(--muted);font-size:.95rem}
+  .advice b{color:var(--ink)}
+
+  /* footer */
+  footer{background:var(--ink);color:#c3d0d9;padding:48px 0;margin-top:24px}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  footer .brand{color:#fff}
+  footer .mark{background:var(--teal)}
+  .foot-note{font-size:.86rem;max-width:40em;color:#9fb1bd}
+  .foot-meta{font-size:.8rem;color:#7d8e9a}
+
+  @media (max-width:880px){
+    .hero-inner{padding:40px 0 20px}
+    .chat-shell{height:clamp(460px,76vh,680px)}
+    .cards,.steps{grid-template-columns:1fr}
+    .band{grid-template-columns:1fr;padding:32px}
+    .nav-right .langs{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="mark">§</span> Trennungskompass</div>
+    <div class="nav-right">
+      <span class="langs">DE · FR · IT · EN</span>
+      <a class="btn btn-primary nav-cta" href="#chat">Im Chat fragen</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Schweizer Scheidungs- &amp; Familienrecht</span>
+    <h1>Verstehen, <em>wo Sie stehen</em> — Schritt für Schritt.</h1>
+    <p class="lede">Klare, verständliche Antworten zu Scheidung, Unterhalt, Kindern und Vorsorge – gestützt auf Schweizer Rechtsquellen. Eine Orientierungshilfe, keine Rechtsberatung.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#chat">Im Chat fragen</a>
+      <a class="btn btn-ghost" href="https://cortese.app.n8n.cloud/form/fa408708-79f5-496e-9270-12a38a732891" target="_blank" rel="noopener">Standortbestimmung starten</a>
+    </div>
+    <div class="trust">
+      <span><span class="dot"></span> Vier Sprachen</span>
+      <span><span class="dot"></span> Mit Rechtsquellen</span>
+      <span><span class="dot"></span> Checkliste als PDF</span>
+    </div>
+  </div>
+</header>
+
+<section id="chat" class="chat-section">
+  <div class="wrap">
+    <div class="chat-shell">
+      <div id="chat-embed"></div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Drei Wege, sich Klarheit zu verschaffen</h2>
+      <p>Stellen Sie Ihre Frage frei im Chat oder lassen Sie sich eine persönliche Checkliste erstellen.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">💬</div>
+        <h3>Fragen im Chat</h3>
+        <p>Scheidung, Unterhalt, Sorge- und Besuchsrecht, Güterrecht, Vorsorge – fragen Sie in Ihrer Sprache, so konkret Sie möchten.</p>
+      </div>
+      <div class="card">
+        <div class="ico">📋</div>
+        <h3>Standortbestimmung &amp; Checkliste</h3>
+        <p>Ein kurzes Formular erstellt eine auf Ihre Situation zugeschnittene Checkliste – mit offenen Punkten, Unterlagen und nächsten Schritten, auch als PDF.</p>
+      </div>
+      <div class="card">
+        <div class="ico">⚖️</div>
+        <h3>Gestützt auf Rechtsquellen</h3>
+        <p>Antworten stützen sich auf eine kuratierte Familienrecht-Wissensbasis sowie echte Schweizer Entscheide und Gesetzesartikel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>So funktioniert es</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h4>Frage stellen oder Formular ausfüllen</h4>
+        <p>Schildern Sie Ihre Situation im Chat oder beantworten Sie ein paar kurze Fragen.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h4>Orientierung erhalten</h4>
+        <p>Sie bekommen verständliche Informationen und Hinweise auf die einschlägigen Bestimmungen.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h4>Nächste Schritte planen</h4>
+        <p>Konkrete nächste Schritte – und auf Wunsch eine Checkliste zum Speichern als PDF.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="standortbestimmung" style="padding-top:0">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <h2>Persönliche Standortbestimmung</h2>
+        <p>Ein paar Angaben zu Kanton, Kindern, Einigkeit und betroffenen Themen – und Sie erhalten eine strukturierte Checkliste für genau Ihre Lage.</p>
+      </div>
+      <a class="btn btn-primary" href="https://cortese.app.n8n.cloud/form/fa408708-79f5-496e-9270-12a38a732891" target="_blank" rel="noopener">Jetzt ausfüllen</a>
+    </div>
+
+    <div class="safety" style="margin-top:24px">
+      <span style="font-size:20px;line-height:1">🆘</span>
+      <div>
+        <strong>In einer Notlage?</strong>
+        Bei häuslicher Gewalt oder Gefahr: Opferhilfe Schweiz, Beratung Tel. <b>143</b>, im Notfall <b>112</b> / Polizei <b>117</b>.
+      </div>
+    </div>
+
+    <div class="advice">
+      <p>Brauchen Sie eine <b>individuelle rechtliche Abklärung</b> Ihres Falls?</p>
+      <span class="btn btn-light" style="cursor:default">Individuelle Abklärung: FaBolz Legal AI</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="brand"><span class="mark">§</span> Trennungskompass</div>
+      <p class="foot-note" style="margin-top:12px">Allgemeine Orientierung zum Schweizer Scheidungs- und Familienrecht. <b style="color:#cdd9e0">Keine Rechtsberatung</b> und kein Ersatz für eine Anwältin/einen Anwalt oder das Gericht.</p>
+    </div>
+    <div class="foot-meta">
+      DE · FR · IT · EN<br>
+      Läuft über einen n8n-Agenten · gehostet auf GitHub Pages
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  createChat({
+    webhookUrl: 'https://cortese.app.n8n.cloud/webhook/cc223f6f-7f7d-4e46-93e8-d3837c65480b/chat',
+    mode: 'fullscreen',
+    target: '#chat-embed',
+    showWelcomeScreen: false,
+    loadPreviousSession: true,
+    initialMessages: [
+      'Grüezi! Ich bin der Trennungskompass.',
+      'Ich gebe allgemeine Orientierung zum Schweizer Scheidungs- und Familienrecht – keine Rechtsberatung. Was beschäftigt Sie?'
+    ],
+    i18n: {
+      en: {
+        title: 'Trennungskompass',
+        subtitle: 'Allgemeine Orientierung · keine Rechtsberatung',
+        footer: '',
+        getStarted: 'Neues Gespräch',
+        inputPlaceholder: 'Ihre Frage …',
+        closeButtonTooltip: 'Schliessen'
+      }
+    }
+  });
+</script>
+</body>
+</html>
