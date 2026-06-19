@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trennungskompass – Orientierung im Schweizer Familienrecht</title>
+<meta name="description" content="Verständliche Orientierung zum Schweizer Scheidungs- und Familienrecht: Chat, Standortbestimmung und Checkliste in fünf Sprachen. Keine Rechtsberatung." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lora:wght@400;500;600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+<style>
+  :root{
+    --red:#d2382b;
+    --red-deep:#b32d22;
+    --ink:#1c1c1c;
+    --ink-soft:#3a3a3a;
+    --gray:#565656;
+    --gray-2:#4a4a4a;
+    --muted:#6f6f6f;
+    --line:#e4e4e4;
+    --bg:#ffffff;
+    --display:'Playfair Display',Georgia,serif;
+    --serif:'Lora',Georgia,serif;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+
+    --chat--color-primary:#d2382b;
+    --chat--color-primary-shade-50:#bb3024;
+    --chat--color-primary-shade-100:#b32d22;
+    --chat--color-secondary:#2e2e2e;
+    --chat--color-secondary-shade-50:#262626;
+    --chat--color-white:#ffffff;
+    --chat--color-light:#f6f6f6;
+    --chat--color-medium:#e4e4e4;
+    --chat--color-dark:#1c1c1c;
+    --chat--color-typing:#6f6f6f;
+    --chat--header--background:#2e2e2e;
+    --chat--header--color:#ffffff;
+    --chat--heading--font-size:1.05rem;
+    --chat--subtitle--font-size:.8rem;
+    --chat--message--bot--background:#f6f6f6;
+    --chat--message--user--background:#d2382b;
+    --chat--message--user--color:#ffffff;
+    --chat--message--bot--color:#1c1c1c;
+    --chat--message--font-size:.95rem;
+    --chat--border-radius:.35rem;
+    --chat--toggle--background:#d2382b;
+    --chat--toggle--hover--background:#b32d22;
+    --chat--window--width:100%;
+    --chat--window--height:100%;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-anchor:none}
+  body{font-family:var(--serif);color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+  h1,h2,h3,.display{font-family:var(--display)}
+
+  /* ---- Nav ---- */
+  nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:20px;height:74px}
+  .brand{display:flex;align-items:center;text-decoration:none;font-family:var(--sans);
+    font-size:1.06rem;letter-spacing:.07em;text-transform:uppercase}
+  .brand .bar{width:4px;height:21px;background:var(--red);margin-right:11px;border-radius:1px}
+  .brand b{color:var(--ink);font-weight:800}
+  .brand span{color:#9c9c9c;font-weight:600}
+  .nav-links{display:flex;gap:26px;margin-left:18px;font-family:var(--sans)}
+  .nav-links a{font-size:.93rem;color:#4a4a4a;text-decoration:none;font-weight:500}
+  .nav-links a:hover{color:var(--red)}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:16px}
+  .langs{display:flex;gap:2px}
+  .lang-btn{font-family:var(--sans);border:0;background:transparent;color:#8a8a8a;
+    font-size:.78rem;font-weight:600;letter-spacing:.04em;cursor:pointer;padding:6px 9px;border-radius:3px;transition:.15s}
+  .lang-btn:hover{color:var(--ink);background:#f1f1f1}
+  .lang-btn[aria-pressed="true"]{background:var(--red);color:#fff}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);
+    font-weight:600;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;border-radius:3px;
+    border:0;cursor:pointer;padding:13px 26px;text-decoration:none;transition:.18s}
+  .btn-primary{background:var(--red);color:#fff}
+  .btn-primary:hover{background:var(--red-deep)}
+  .btn-outline{background:transparent;color:var(--ink);border:1.5px solid #cfcfcf}
+  .btn-outline:hover{border-color:var(--ink)}
+  .btn-light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn:focus-visible,.lang-btn:focus-visible{outline:3px solid rgba(210,56,43,.4);outline-offset:2px}
+  .nav-cta{padding:11px 20px}
+
+  /* ---- Hero ---- */
+  header.hero{background:#fff;text-align:center}
+  .hero-inner{max-width:860px;margin:0 auto;padding:86px 0 30px}
+  .eyebrow{display:inline-block;font-family:var(--sans);font-size:.76rem;font-weight:600;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:22px}
+  .eyebrow::after{content:"";display:block;width:42px;height:2px;background:var(--red);margin:14px auto 0}
+  h1{font-weight:600;font-size:clamp(2.4rem,5.4vw,3.9rem);line-height:1.08;color:var(--ink);letter-spacing:-.005em;margin-bottom:24px}
+  .lede{font-size:1.16rem;color:#4f4f4f;max-width:40em;margin:0 auto 34px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+  /* ---- Badges ---- */
+  .badges{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;padding:54px 0 10px}
+  .badge{text-align:center}
+  .badge .ico{width:52px;height:52px;margin:0 auto 16px;display:grid;place-items:center;color:var(--red);
+    border:1.5px solid #ecd6d3;border-radius:50%}
+  .badge .ico svg{width:24px;height:24px}
+  .badge h3{font-family:var(--display);font-size:1.16rem;color:var(--ink);margin-bottom:8px;font-weight:600}
+  .badge p{font-size:.94rem;color:var(--muted);line-height:1.6}
+
+  /* ---- Sections ---- */
+  section{padding:78px 0}
+  .center{text-align:center}
+  .kicker{font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--red);margin-bottom:14px}
+  .head h2{font-weight:600;font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--ink);line-height:1.15}
+  .head p{color:var(--muted);margin-top:14px;font-size:1.05rem;max-width:40em}
+  .head.center p{margin-left:auto;margin-right:auto}
+  .head{margin-bottom:46px}
+
+  /* chat */
+  .chat-section{padding:10px 0 70px;scroll-margin-top:90px}
+  .chat-head{text-align:center;max-width:36em;margin:0 auto 30px}
+  .chat-head h2{font-weight:600;font-size:clamp(1.8rem,3.2vw,2.4rem);color:var(--ink)}
+  .chat-head p{color:var(--muted);margin-top:10px}
+  .chat-shell{background:#fff;border:1px solid var(--line);border-radius:6px;
+    box-shadow:0 30px 70px -40px rgba(0,0,0,.4);overflow:hidden;
+    height:clamp(420px,calc(100vh - 210px),760px);display:flex;flex-direction:column;
+    overscroll-behavior:contain;contain:layout}
+  #chat-embed{flex:1;min-height:0;position:relative;overscroll-behavior:contain}
+  #chat-embed .chat-layout{height:100%}
+  #chat-embed [class*="messages"]{overscroll-behavior:contain}
+
+  /* gray band (Expertise / Standort) */
+  .band{background:var(--gray);color:#fff}
+  .band h2{color:#fff;font-weight:600;font-size:clamp(1.9rem,3.6vw,2.6rem)}
+  .band .kicker{color:#f0bcb6}
+  .topics{display:grid;grid-template-columns:repeat(2,1fr);gap:0 60px;margin-top:8px}
+  .topic{display:flex;gap:14px;align-items:flex-start;padding:18px 2px;border-bottom:1px solid rgba(255,255,255,.16)}
+  .topic:last-child,.topic:nth-last-child(2){border-bottom:0}
+  .topic .mk{color:var(--red);font-weight:700;font-family:var(--sans);line-height:1.5;flex:none}
+  .topic span.tx{font-size:1.08rem;color:#f2f2f2}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+  .step .n{font-family:var(--display);font-size:2.4rem;color:var(--red);line-height:1;margin-bottom:14px}
+  .step h4{font-family:var(--display);color:var(--ink);font-size:1.18rem;margin-bottom:8px;font-weight:600}
+  .step p{color:var(--muted);font-size:.97rem}
+
+  /* faq cards */
+  .faq{max-width:880px;margin:0 auto}
+  .qa{border:1px solid var(--line);border-radius:4px;margin-bottom:14px;background:#fff;transition:background .15s,border-color .15s}
+  .qa summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:22px;padding:24px 28px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa-q{flex:1;font-family:var(--display);font-size:1.2rem;font-weight:600;color:var(--ink)}
+  .qa-ico{width:48px;height:48px;flex:none;display:grid;place-items:center;color:#2b2b2b;border-radius:3px;transition:.15s}
+  .qa-ico svg{width:26px;height:26px}
+  .qa .faq-a{padding:0 28px 26px;color:#5a5a5a;font-size:1.01rem;max-width:64ch}
+  .qa[open]{background:var(--gray);border-color:var(--gray)}
+  .qa[open] .qa-q{color:#fff}
+  .qa[open] .faq-a{color:#e8e8e8}
+  .qa[open] .qa-ico{background:var(--red);color:#fff}
+
+  /* standort CTA band */
+  .cta-band{text-align:center;padding:74px 0}
+  .cta-band h2{margin-bottom:14px}
+  .cta-band p{color:#dcdcdc;max-width:40em;margin:0 auto 28px;font-size:1.08rem}
+
+  /* strips */
+  .strip-wrap{padding-top:0}
+  .safety{background:#fbf1ef;border:1px solid #f0d9d5;border-radius:5px;padding:20px 24px;
+    display:flex;gap:14px;align-items:flex-start;color:#9a3b30;font-size:.96rem}
+  .safety strong{display:block;margin-bottom:2px}
+  .advice{margin-top:18px;border:1px solid var(--line);border-radius:5px;background:#fff;
+    padding:20px 24px;display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
+  .advice p{color:var(--muted);font-size:.99rem}
+
+  /* footer */
+  footer{background:#1c1c1c;color:#b3b3b3;padding:50px 0}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  footer .brand b{color:#fff}
+  footer .brand span{color:#8a8a8a}
+  .foot-note{font-size:.9rem;max-width:42em;color:#9a9a9a;margin-top:14px;font-family:var(--serif)}
+  .foot-meta{font-size:.82rem;color:#7d7d7d;font-family:var(--sans);letter-spacing:.04em}
+
+  /* schwebende Buttons */
+  .floaters{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;flex-direction:column;gap:11px;align-items:flex-end;transition:opacity .25s,transform .25s}
+  .floaters.hide{opacity:0;transform:translateY(12px);pointer-events:none}
+  .float-btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;
+    font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;
+    padding:13px 21px;border-radius:40px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45);transition:.18s}
+  .float-btn svg{width:18px;height:18px;flex:none}
+  .float-primary{background:var(--red);color:#fff}
+  .float-primary:hover{background:var(--red-deep)}
+  .float-light{background:#fff;color:var(--ink);border:1px solid #dcdcdc}
+  .float-light:hover{border-color:var(--ink)}
+  @media (max-width:560px){
+    .floaters{right:14px;bottom:14px;gap:9px}
+    .float-btn{width:52px;height:52px;padding:0;justify-content:center;border-radius:50%}
+    .float-btn .lbl{display:none}
+  }
+
+  @media (max-width:980px){
+    .badges{grid-template-columns:repeat(2,1fr);gap:30px}
+    .topics{grid-template-columns:1fr;gap:0}
+    .topic:nth-last-child(2){border-bottom:1px solid rgba(255,255,255,.16)}
+  }
+  @media (max-width:860px){
+    .nav-links{display:none}
+    .hero-inner{padding:54px 0 24px}
+    .chat-shell{height:clamp(460px,76vh,680px)}
+    .steps{grid-template-columns:1fr;gap:24px}
+    .nav-cta{display:none}
+  }
+  @media (max-width:560px){
+    .badges{grid-template-columns:1fr;gap:26px}
+    .lang-btn{padding:6px 7px;font-size:.74rem}
+    .qa-q{font-size:1.06rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body id="top">
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="bar"></span><b>Trennungs</b><span>kompass</span></a>
+    <div class="nav-links">
+      <a href="#chat" data-i18n="nav_chat">Chat</a>
+      <a href="#themen" data-i18n="nav_themen">Themen</a>
+      <a href="#faq" data-i18n="nav_faq">Häufige Fragen</a>
+      <a href="https://cortese.app.n8n.cloud/form/fa408708-79f5-496e-9270-12a38a732891" target="_blank" rel="noopener" data-i18n="nav_standort">Standortbestimmung</a>
+    </div>
+    <div class="nav-right">
+      <div class="langs" role="group" aria-label="Sprache / Language">
+        <button class="lang-btn" data-lang="de" aria-pressed="true">DE</button>
+        <button class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        <button class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a class="btn btn-primary nav-cta" href="#chat" data-i18n="nav_cta">Im Chat fragen</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow" data-i18n="hero_eyebrow">Schweizer Scheidungs- und Familienrecht</span>
+    <h1 data-i18n="hero_h1">Klarheit in einer schwierigen Zeit.</h1>
+    <p class="lede" data-i18n="hero_lede">Verständliche Orientierung zu Scheidung, Unterhalt, Kindern und Vorsorge – gestützt auf Schweizer Rechtsquellen. Kostenlos, in fünf Sprachen. Eine Orientierungshilfe, keine Rechtsberatung.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#chat" data-i18n="hero_cta1">Im Chat fragen</a>
+      <a class="btn btn-outline" href="https://cortese.app.n8n.cloud/form/fa408708-79f5-496e-9270-12a38a732891" target="_blank" rel="noopener" data-i18n="hero_cta2">Standortbestimmung starten</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="badges">
+    <div class="badge">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 4v5c0 4-3 7-7 8-4-1-7-4-7-8V7z"/></svg></div>
+      <h3 data-i18n="b1_t">Schweizer Rechtsquellen</h3>
+      <p data-i18n="b1_d">Antworten gestützt auf Gesetz und Rechtsprechung.</p>
+    </div>
+    <div class="badge">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg></div>
+      <h3 data-i18n="b2_t">Fünf Sprachen</h3>
+      <p data-i18n="b2_d">Deutsch, Französisch, Italienisch, Englisch und Russisch.</p>
+    </div>
+    <div class="badge">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9.5 13l1.8 1.8L15 11"/></svg></div>
+      <h3 data-i18n="b3_t">Checkliste als PDF</h3>
+      <p data-i18n="b3_d">Persönliche Standortbestimmung zum Mitnehmen.</p>
+    </div>
+    <div class="badge">
+      <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 4v5c0 4-3 7-7 8-4-1-7-4-7-8V7z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+      <h3 data-i18n="b4_t">Klar und vertraulich</h3>
+      <p data-i18n="b4_d">Allgemeine Orientierung – kein Ersatz für eine Anwältin oder einen Anwalt.</p>
+    </div>
+  </div>
+</div>
+
+<section id="chat" class="chat-section">
+  <div class="wrap">
+    <div class="chat-head">
+      <h2 data-i18n="chat_t">Stellen Sie Ihre Frage</h2>
+      <p data-i18n="chat_s">Fragen Sie frei – zu Ihrem Anliegen, in Ihrer Sprache.</p>
+    </div>
+    <div class="chat-shell"><div id="chat-embed"></div></div>
+  </div>
+</section>
+
+<section id="themen" class="band">
+  <div class="wrap">
+    <div class="head center">
+      <div class="kicker" data-i18n="themen_k">Themen</div>
+      <h2 data-i18n="themen_t">Bereiche, bei denen ich helfe</h2>
+    </div>
+    <div class="topics">
+      <div class="topic"><span class="mk">&#187;</span><span class="tx" data-i18n="t1">Scheidung und Verfahren</span></div>
+      <div class="topic"><span class="mk">&#187;</span><span class="tx" data-i18n="t2">Unterhalt (Ehe und Kind)</span></div>
+      <div class="topic"><span class="mk">&#187;</span><span class="tx" data-i18n="t3">Sorge- und Besuchsrecht</span></div>
+      <div class="topic"><span class="mk">&#187;</span><span class="tx" data-i18n="t4">Güterrecht und Vermögensteilung</span></div>
+      <div class="topic"><span class="mk">&#187;</span><span class="tx" data-i18n="t5">Berufliche Vorsorge (Pensionskasse)</span></div>
+      <div class="topic"><span class="mk">&#187;</span><span class="tx" data-i18n="t6">Internationale Fälle</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head center">
+      <div class="kicker" data-i18n="how_k">Ablauf</div>
+      <h2 data-i18n="how_t">So funktioniert es</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4 data-i18n="s1_t">Frage stellen oder Formular ausfüllen</h4><p data-i18n="s1_d">Schildern Sie Ihre Situation im Chat oder beantworten Sie ein paar kurze Fragen.</p></div>
+      <div class="step"><div class="n">2</div><h4 data-i18n="s2_t">Orientierung erhalten</h4><p data-i18n="s2_d">Sie bekommen verständliche Informationen und Hinweise auf die einschlägigen Bestimmungen.</p></div>
+      <div class="step"><div class="n">3</div><h4 data-i18n="s3_t">Nächste Schritte planen</h4><p data-i18n="s3_d">Konkrete nächste Schritte – und auf Wunsch eine Checkliste als PDF.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="head center">
+      <div class="kicker" data-i18n="faq_k">FAQ</div>
+      <h2 data-i18n="faq_t">Häufige Fragen</h2>
+    </div>
+    <div class="faq">
+      <details class="qa">
+        <summary>
+          <span class="qa-q" data-i18n="q1">Was ist der Unterschied zwischen Trennung und Scheidung?</span>
+          <span class="qa-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M9 13h7M9 17h7"/></svg></span>
+        </summary>
+        <div class="faq-a" data-i18n="a1">Die Trennung (Getrenntleben) geht der Scheidung oft voraus. Sind sich beide einig, ist eine Scheidung auf gemeinsames Begehren möglich; andernfalls gelten gesetzliche Fristen. Welcher Weg passt, hängt von Ihrer Situation ab.</div>
+      </details>
+      <details class="qa">
+        <summary>
+          <span class="qa-q" data-i18n="q2">Werden Beträge zum Unterhalt genannt?</span>
+          <span class="qa-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16M7 8h7a2.5 2.5 0 010 5H8a2.5 2.5 0 000 5h8"/></svg></span>
+        </summary>
+        <div class="faq-a" data-i18n="a2">Nein. Der Trennungskompass nennt die massgebenden Faktoren (z. B. Einkommen, Betreuung, Lebensbedarf), aber keine konkreten Beträge. Für eine Berechnung braucht es eine fachliche Abklärung.</div>
+      </details>
+      <details class="qa">
+        <summary>
+          <span class="qa-q" data-i18n="q3">Ersetzt das eine Anwältin oder einen Anwalt?</span>
+          <span class="qa-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v5c0 4-3 7.5-7 9-4-1.5-7-5-7-9V6z"/><path d="M9.5 11.5l1.8 1.8 3.2-3.6"/></svg></span>
+        </summary>
+        <div class="faq-a" data-i18n="a3">Nein. Dies ist eine allgemeine Orientierungshilfe und keine Rechtsberatung. Für eine verbindliche Beurteilung Ihres Falls wenden Sie sich an eine Fachperson.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="band cta-band" id="standortbestimmung">
+  <div class="wrap">
+    <h2 data-i18n="band_t">Persönliche Standortbestimmung</h2>
+    <p data-i18n="band_d">Ein paar Angaben zu Kanton, Kindern, Einigkeit und betroffenen Themen – und Sie erhalten eine strukturierte Checkliste für genau Ihre Lage, auch als PDF.</p>
+    <a class="btn btn-primary" href="https://cortese.app.n8n.cloud/form/fa408708-79f5-496e-9270-12a38a732891" target="_blank" rel="noopener" data-i18n="band_cta">Jetzt ausfüllen</a>
+  </div>
+</section>
+
+<section class="strip-wrap">
+  <div class="wrap">
+    <div class="safety">
+      <span style="font-size:20px;line-height:1">&#9888;</span>
+      <div><strong data-i18n="safety_t">In einer Notlage?</strong><span data-i18n="safety_d">Bei häuslicher Gewalt oder Gefahr: Opferhilfe Schweiz, Beratung Tel. 143, im Notfall 112 / Polizei 117.</span></div>
+    </div>
+    <div class="advice">
+      <p data-i18n="advice_d">Brauchen Sie eine individuelle rechtliche Abklärung Ihres Falls?</p>
+      <span class="btn btn-light" style="cursor:default" data-i18n="advice_b">Individuelle Abklärung: FaBolz Legal AI</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="brand" style="font-family:var(--sans);font-size:1.02rem;letter-spacing:.07em;text-transform:uppercase"><span class="bar" style="display:inline-block;width:4px;height:18px;background:var(--red);margin-right:10px;vertical-align:-3px"></span><b>Trennungs</b><span>kompass</span></div>
+      <p class="foot-note" data-i18n="foot_note">Allgemeine Orientierung zum Schweizer Scheidungs- und Familienrecht. Keine Rechtsberatung und kein Ersatz für eine Anwältin/einen Anwalt oder das Gericht.</p>
+    </div>
+    <div class="foot-meta" data-i18n="foot_meta">Verfügbar in DE · FR · IT · EN · RU</div>
+  </div>
+</footer>
+
+<div class="floaters" id="floaters" aria-label="Schnellzugriff">
+  <a class="float-btn float-primary" href="#chat" aria-label="Im Chat fragen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a8 8 0 01-11.5 7.2L4 20l1-4.8A8 8 0 1121 12z"/></svg>
+    <span class="lbl" data-i18n="nav_cta">Im Chat fragen</span>
+  </a>
+  <a class="float-btn float-light" href="https://cortese.app.n8n.cloud/form/fa408708-79f5-496e-9270-12a38a732891" target="_blank" rel="noopener" aria-label="Standortbestimmung">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M9.5 13l1.7 1.7L15 11"/></svg>
+    <span class="lbl" data-i18n="nav_standort">Standortbestimmung</span>
+  </a>
+</div>
+
+<script>
+  var I18N = {
+    de:{nav_chat:"Chat",nav_themen:"Themen",nav_faq:"Häufige Fragen",nav_standort:"Standortbestimmung",nav_cta:"Im Chat fragen",
+      hero_eyebrow:"Schweizer Scheidungs- und Familienrecht",hero_h1:"Klarheit in einer schwierigen Zeit.",
+      hero_lede:"Verständliche Orientierung zu Scheidung, Unterhalt, Kindern und Vorsorge – gestützt auf Schweizer Rechtsquellen. Kostenlos, in fünf Sprachen. Eine Orientierungshilfe, keine Rechtsberatung.",
+      hero_cta1:"Im Chat fragen",hero_cta2:"Standortbestimmung starten",
+      b1_t:"Schweizer Rechtsquellen",b1_d:"Antworten gestützt auf Gesetz und Rechtsprechung.",
+      b2_t:"Fünf Sprachen",b2_d:"Deutsch, Französisch, Italienisch, Englisch und Russisch.",
+      b3_t:"Checkliste als PDF",b3_d:"Persönliche Standortbestimmung zum Mitnehmen.",
+      b4_t:"Klar und vertraulich",b4_d:"Allgemeine Orientierung – kein Ersatz für eine Anwältin oder einen Anwalt.",
+      chat_t:"Stellen Sie Ihre Frage",chat_s:"Fragen Sie frei – zu Ihrem Anliegen, in Ihrer Sprache.",
+      themen_k:"Themen",themen_t:"Bereiche, bei denen ich helfe",themen_s:"Orientierung zu den häufigsten Themen rund um Trennung und Scheidung.",
+      t1:"Scheidung und Verfahren",t2:"Unterhalt (Ehe und Kind)",t3:"Sorge- und Besuchsrecht",t4:"Güterrecht und Vermögensteilung",t5:"Berufliche Vorsorge (Pensionskasse)",t6:"Internationale Fälle",
+      how_k:"Ablauf",how_t:"So funktioniert es",
+      s1_t:"Frage stellen oder Formular ausfüllen",s1_d:"Schildern Sie Ihre Situation im Chat oder beantworten Sie ein paar kurze Fragen.",
+      s2_t:"Orientierung erhalten",s2_d:"Sie bekommen verständliche Informationen und Hinweise auf die einschlägigen Bestimmungen.",
+      s3_t:"Nächste Schritte planen",s3_d:"Konkrete nächste Schritte – und auf Wunsch eine Checkliste als PDF.",
+      band_t:"Persönliche Standortbestimmung",band_d:"Ein paar Angaben zu Kanton, Kindern, Einigkeit und betroffenen Themen – und Sie erhalten eine strukturierte Checkliste für genau Ihre Lage, auch als PDF.",band_cta:"Jetzt ausfüllen",
+      faq_k:"FAQ",faq_t:"Häufige Fragen",
+      q1:"Was ist der Unterschied zwischen Trennung und Scheidung?",a1:"Die Trennung (Getrenntleben) geht der Scheidung oft voraus. Sind sich beide einig, ist eine Scheidung auf gemeinsames Begehren möglich; andernfalls gelten gesetzliche Fristen. Welcher Weg passt, hängt von Ihrer Situation ab.",
+      q2:"Werden Beträge zum Unterhalt genannt?",a2:"Nein. Der Trennungskompass nennt die massgebenden Faktoren (z. B. Einkommen, Betreuung, Lebensbedarf), aber keine konkreten Beträge. Für eine Berechnung braucht es eine fachliche Abklärung.",
+      q3:"Ersetzt das eine Anwältin oder einen Anwalt?",a3:"Nein. Dies ist eine allgemeine Orientierungshilfe und keine Rechtsberatung. Für eine verbindliche Beurteilung Ihres Falls wenden Sie sich an eine Fachperson.",
+      safety_t:"In einer Notlage?",safety_d:"Bei häuslicher Gewalt oder Gefahr: Opferhilfe Schweiz, Beratung Tel. 143, im Notfall 112 / Polizei 117.",
+      advice_d:"Brauchen Sie eine individuelle rechtliche Abklärung Ihres Falls?",advice_b:"Individuelle Abklärung: FaBolz Legal AI",
+      foot_note:"Allgemeine Orientierung zum Schweizer Scheidungs- und Familienrecht. Keine Rechtsberatung und kein Ersatz für eine Anwältin/einen Anwalt oder das Gericht.",foot_meta:"Verfügbar in DE · FR · IT · EN · RU",
+      cw_title:"Trennungskompass",cw_sub:"Allgemeine Orientierung · keine Rechtsberatung",cw_input:"Ihre Frage …",cw_get:"Neues Gespräch",
+      cw_m1:"Grüezi! Ich bin der Trennungskompass.",cw_m2:"Ich gebe allgemeine Orientierung zum Schweizer Scheidungs- und Familienrecht – keine Rechtsberatung. Was beschäftigt Sie?"},
+
+    en:{nav_chat:"Chat",nav_themen:"Topics",nav_faq:"FAQ",nav_standort:"Assessment",nav_cta:"Ask in chat",
+      hero_eyebrow:"Swiss divorce and family law",hero_h1:"Clarity in a difficult time.",
+      hero_lede:"Clear orientation on divorce, maintenance, children and pensions – based on Swiss legal sources. Free, in five languages. A guide, not legal advice.",
+      hero_cta1:"Ask in chat",hero_cta2:"Start your assessment",
+      b1_t:"Swiss legal sources",b1_d:"Answers based on statutes and case law.",
+      b2_t:"Five languages",b2_d:"German, French, Italian, English and Russian.",
+      b3_t:"Checklist as PDF",b3_d:"A personal assessment to take with you.",
+      b4_t:"Clear and confidential",b4_d:"General orientation – not a substitute for a lawyer.",
+      chat_t:"Ask your question",chat_s:"Ask freely – about your situation, in your language.",
+      themen_k:"Topics",themen_t:"Areas I can help with",themen_s:"Orientation on the most common topics around separation and divorce.",
+      t1:"Divorce and procedure",t2:"Maintenance (spousal and child)",t3:"Custody and contact rights",t4:"Matrimonial property and asset division",t5:"Occupational pensions (pension fund)",t6:"International cases",
+      how_k:"Process",how_t:"How it works",
+      s1_t:"Ask a question or fill in the form",s1_d:"Describe your situation in the chat or answer a few short questions.",
+      s2_t:"Get orientation",s2_d:"You receive clear information and pointers to the relevant provisions.",
+      s3_t:"Plan next steps",s3_d:"Concrete next steps – and a checklist as PDF if you wish.",
+      band_t:"Personal assessment",band_d:"A few details about canton, children, agreement and the topics involved – and you receive a structured checklist for exactly your situation, also as a PDF.",band_cta:"Start now",
+      faq_k:"FAQ",faq_t:"Common questions",
+      q1:"What is the difference between separation and divorce?",a1:"Separation (living apart) often precedes divorce. If both spouses agree, a divorce by joint request is possible; otherwise statutory periods apply. Which path fits depends on your situation.",
+      q2:"Will it give maintenance amounts?",a2:"No. Trennungskompass names the relevant factors (e.g. income, childcare, living needs) but no specific amounts. A calculation requires professional assessment.",
+      q3:"Does this replace a lawyer?",a3:"No. This is general orientation and not legal advice. For a binding assessment of your case, please consult a professional.",
+      safety_t:"In an emergency?",safety_d:"In case of domestic violence or danger: Victim Support Switzerland, advice line 143, in an emergency 112 / police 117.",
+      advice_d:"Do you need an individual legal assessment of your case?",advice_b:"Individual assessment: FaBolz Legal AI",
+      foot_note:"General orientation on Swiss divorce and family law. Not legal advice and not a substitute for a lawyer or the court.",foot_meta:"Available in DE · FR · IT · EN · RU",
+      cw_title:"Trennungskompass",cw_sub:"General orientation · not legal advice",cw_input:"Your question …",cw_get:"New conversation",
+      cw_m1:"Hello! I am Trennungskompass.",cw_m2:"I provide general orientation on Swiss divorce and family law – not legal advice. What is on your mind?"},
+
+    fr:{nav_chat:"Chat",nav_themen:"Thèmes",nav_faq:"FAQ",nav_standort:"Bilan",nav_cta:"Poser une question",
+      hero_eyebrow:"Droit suisse du divorce et de la famille",hero_h1:"De la clarté dans une période difficile.",
+      hero_lede:"Une orientation claire sur le divorce, l’entretien, les enfants et la prévoyance – fondée sur les sources juridiques suisses. Gratuit, en cinq langues. Une aide à l’orientation, pas un conseil juridique.",
+      hero_cta1:"Poser une question",hero_cta2:"Démarrer le bilan",
+      b1_t:"Sources juridiques suisses",b1_d:"Réponses fondées sur la loi et la jurisprudence.",
+      b2_t:"Cinq langues",b2_d:"Allemand, français, italien, anglais et russe.",
+      b3_t:"Liste de contrôle en PDF",b3_d:"Un bilan personnel à emporter.",
+      b4_t:"Clair et confidentiel",b4_d:"Orientation générale – ne remplace pas un avocat.",
+      chat_t:"Posez votre question",chat_s:"Demandez librement – sur votre situation, dans votre langue.",
+      themen_k:"Thèmes",themen_t:"Domaines où je peux aider",themen_s:"Orientation sur les thèmes les plus fréquents autour de la séparation et du divorce.",
+      t1:"Divorce et procédure",t2:"Entretien (époux et enfants)",t3:"Autorité parentale et droit de visite",t4:"Régime matrimonial et partage des biens",t5:"Prévoyance professionnelle (caisse de pension)",t6:"Cas internationaux",
+      how_k:"Déroulement",how_t:"Comment ça marche",
+      s1_t:"Poser une question ou remplir le formulaire",s1_d:"Décrivez votre situation dans le chat ou répondez à quelques questions.",
+      s2_t:"Obtenir une orientation",s2_d:"Vous recevez des informations claires et les dispositions pertinentes.",
+      s3_t:"Planifier les prochaines étapes",s3_d:"Des étapes concrètes – et une liste de contrôle en PDF si vous le souhaitez.",
+      band_t:"Bilan personnel",band_d:"Quelques indications sur le canton, les enfants, l’accord et les thèmes concernés – et vous recevez une liste de contrôle structurée pour votre situation, aussi en PDF.",band_cta:"Remplir maintenant",
+      faq_k:"FAQ",faq_t:"Questions fréquentes",
+      q1:"Quelle est la différence entre séparation et divorce ?",a1:"La séparation (vie séparée) précède souvent le divorce. Si les deux époux sont d’accord, un divorce sur requête commune est possible ; sinon, des délais légaux s’appliquent. La voie adaptée dépend de votre situation.",
+      q2:"Donne-t-il des montants d’entretien ?",a2:"Non. Trennungskompass nomme les facteurs déterminants (revenu, prise en charge, besoins) mais pas de montants concrets. Un calcul nécessite une évaluation professionnelle.",
+      q3:"Cela remplace-t-il un avocat ?",a3:"Non. Il s’agit d’une orientation générale et non d’un conseil juridique. Pour une évaluation contraignante, adressez-vous à un professionnel.",
+      safety_t:"En cas d’urgence ?",safety_d:"En cas de violence domestique ou de danger : Aide aux victimes Suisse, conseil tél. 143, en urgence 112 / police 117.",
+      advice_d:"Besoin d’une évaluation juridique individuelle de votre cas ?",advice_b:"Évaluation individuelle : FaBolz Legal AI",
+      foot_note:"Orientation générale sur le droit suisse du divorce et de la famille. Pas un conseil juridique et ne remplace ni un avocat ni le tribunal.",foot_meta:"Disponible en DE · FR · IT · EN · RU",
+      cw_title:"Trennungskompass",cw_sub:"Orientation générale · pas de conseil juridique",cw_input:"Votre question …",cw_get:"Nouvelle conversation",
+      cw_m1:"Bonjour ! Je suis Trennungskompass.",cw_m2:"Je donne une orientation générale sur le droit suisse du divorce et de la famille – pas de conseil juridique. Que puis-je faire pour vous ?"},
+
+    it:{nav_chat:"Chat",nav_themen:"Temi",nav_faq:"FAQ",nav_standort:"Valutazione",nav_cta:"Fai una domanda",
+      hero_eyebrow:"Diritto svizzero del divorzio e della famiglia",hero_h1:"Chiarezza in un momento difficile.",
+      hero_lede:"Orientamento chiaro su divorzio, mantenimento, figli e previdenza – basato sulle fonti giuridiche svizzere. Gratuito, in cinque lingue. Un aiuto all’orientamento, non una consulenza legale.",
+      hero_cta1:"Fai una domanda",hero_cta2:"Avvia la valutazione",
+      b1_t:"Fonti giuridiche svizzere",b1_d:"Risposte basate su legge e giurisprudenza.",
+      b2_t:"Cinque lingue",b2_d:"Tedesco, francese, italiano, inglese e russo.",
+      b3_t:"Lista di controllo in PDF",b3_d:"Una valutazione personale da portare con sé.",
+      b4_t:"Chiaro e riservato",b4_d:"Orientamento generale – non sostituisce un avvocato.",
+      chat_t:"Fai la tua domanda",chat_s:"Chiedi liberamente – sulla tua situazione, nella tua lingua.",
+      themen_k:"Temi",themen_t:"Ambiti in cui posso aiutare",themen_s:"Orientamento sui temi più frequenti in caso di separazione e divorzio.",
+      t1:"Divorzio e procedura",t2:"Mantenimento (coniugale e dei figli)",t3:"Autorità parentale e diritto di visita",t4:"Regime dei beni e divisione del patrimonio",t5:"Previdenza professionale (cassa pensioni)",t6:"Casi internazionali",
+      how_k:"Svolgimento",how_t:"Come funziona",
+      s1_t:"Fai una domanda o compila il modulo",s1_d:"Descrivi la tua situazione nella chat o rispondi a poche domande.",
+      s2_t:"Ottieni orientamento",s2_d:"Ricevi informazioni chiare e i riferimenti alle norme pertinenti.",
+      s3_t:"Pianifica i prossimi passi",s3_d:"Passi concreti – e una lista di controllo in PDF se lo desideri.",
+      band_t:"Valutazione personale",band_d:"Pochi dati su cantone, figli, accordo e temi coinvolti – e ricevi una lista di controllo strutturata per la tua situazione, anche in PDF.",band_cta:"Compila ora",
+      faq_k:"FAQ",faq_t:"Domande frequenti",
+      q1:"Qual è la differenza tra separazione e divorzio?",a1:"La separazione (vita separata) precede spesso il divorzio. Se entrambi i coniugi sono d’accordo, è possibile un divorzio su richiesta congiunta; altrimenti valgono i termini di legge. La via adatta dipende dalla tua situazione.",
+      q2:"Indica importi di mantenimento?",a2:"No. Trennungskompass indica i fattori rilevanti (reddito, accudimento, fabbisogno) ma non importi concreti. Un calcolo richiede una valutazione professionale.",
+      q3:"Sostituisce un avvocato?",a3:"No. È un orientamento generale e non una consulenza legale. Per una valutazione vincolante del tuo caso rivolgiti a un professionista.",
+      safety_t:"In caso di emergenza?",safety_d:"In caso di violenza domestica o pericolo: Aiuto alle vittime Svizzera, consulenza tel. 143, in emergenza 112 / polizia 117.",
+      advice_d:"Ti serve una valutazione legale individuale del tuo caso?",advice_b:"Valutazione individuale: FaBolz Legal AI",
+      foot_note:"Orientamento generale sul diritto svizzero del divorzio e della famiglia. Non è una consulenza legale né sostituisce un avvocato o il tribunale.",foot_meta:"Disponibile in DE · FR · IT · EN · RU",
+      cw_title:"Trennungskompass",cw_sub:"Orientamento generale · non consulenza legale",cw_input:"La tua domanda …",cw_get:"Nuova conversazione",
+      cw_m1:"Salve! Sono Trennungskompass.",cw_m2:"Offro un orientamento generale sul diritto svizzero del divorzio e della famiglia – non una consulenza legale. Di cosa hai bisogno?"},
+
+    ru:{nav_chat:"Чат",nav_themen:"Темы",nav_faq:"Вопросы",nav_standort:"Анализ ситуации",nav_cta:"Задать вопрос",
+      hero_eyebrow:"Швейцарское семейное и бракоразводное право",hero_h1:"Ясность в трудный период.",
+      hero_lede:"Понятная ориентация по вопросам развода, содержания, детей и пенсионного обеспечения – на основе швейцарских правовых источников. Бесплатно, на пяти языках. Это помощь в ориентации, а не юридическая консультация.",
+      hero_cta1:"Задать вопрос",hero_cta2:"Начать анализ ситуации",
+      b1_t:"Швейцарские правовые источники",b1_d:"Ответы на основе законов и судебной практики.",
+      b2_t:"Пять языков",b2_d:"Немецкий, французский, итальянский, английский и русский.",
+      b3_t:"Чек-лист в PDF",b3_d:"Личный анализ ситуации, который можно сохранить.",
+      b4_t:"Ясно и конфиденциально",b4_d:"Общая ориентация – не заменяет адвоката.",
+      chat_t:"Задайте свой вопрос",chat_s:"Спрашивайте свободно – о вашей ситуации, на вашем языке.",
+      themen_k:"Темы",themen_t:"Темы, в которых я помогаю",themen_s:"Ориентация по самым частым вопросам при расставании и разводе.",
+      t1:"Развод и процедура",t2:"Содержание (супруга и детей)",t3:"Опека и право на общение",t4:"Имущественные отношения и раздел имущества",t5:"Профессиональное пенсионное обеспечение (пенсионная касса)",t6:"Международные дела",
+      how_k:"Порядок",how_t:"Как это работает",
+      s1_t:"Задайте вопрос или заполните форму",s1_d:"Опишите свою ситуацию в чате или ответьте на несколько коротких вопросов.",
+      s2_t:"Получите ориентацию",s2_d:"Вы получите понятную информацию и ссылки на соответствующие нормы.",
+      s3_t:"Спланируйте дальнейшие шаги",s3_d:"Конкретные шаги – и при желании чек-лист в PDF.",
+      band_t:"Личный анализ ситуации",band_d:"Несколько данных о кантоне, детях, согласии и затронутых темах – и вы получите структурированный чек-лист именно для вашей ситуации, также в PDF.",band_cta:"Заполнить сейчас",
+      faq_k:"FAQ",faq_t:"Частые вопросы",
+      q1:"В чём разница между раздельным проживанием и разводом?",a1:"Раздельное проживание часто предшествует разводу. Если оба супруга согласны, возможен развод по совместному заявлению; иначе действуют установленные законом сроки. Подходящий путь зависит от вашей ситуации.",
+      q2:"Указывает ли он суммы содержания?",a2:"Нет. Trennungskompass называет значимые факторы (доход, уход за детьми, потребности), но не конкретные суммы. Для расчёта необходима профессиональная оценка.",
+      q3:"Заменяет ли это адвоката?",a3:"Нет. Это общая ориентация, а не юридическая консультация. Для обязывающей оценки вашего дела обратитесь к специалисту.",
+      safety_t:"В экстренной ситуации?",safety_d:"При домашнем насилии или опасности: Помощь жертвам Швейцарии, консультация тел. 143, в экстренном случае 112 / полиция 117.",
+      advice_d:"Нужна индивидуальная юридическая оценка вашего дела?",advice_b:"Индивидуальная оценка: FaBolz Legal AI",
+      foot_note:"Общая ориентация по швейцарскому семейному и бракоразводному праву. Не является юридической консультацией и не заменяет адвоката или суд.",foot_meta:"Доступно на DE · FR · IT · EN · RU",
+      cw_title:"Trennungskompass",cw_sub:"Общая ориентация · не юридическая консультация",cw_input:"Ваш вопрос …",cw_get:"Новый разговор",
+      cw_m1:"Здравствуйте! Я Trennungskompass.",cw_m2:"Я даю общую ориентацию по швейцарскому семейному и бракоразводному праву – не юридическую консультацию. Что вас беспокоит?"}
+  };
+
+  var WEBHOOK = "https://cortese.app.n8n.cloud/webhook/cc223f6f-7f7d-4e46-93e8-d3837c65480b/chat";
+  var chatModulePromise = null;
+
+  function mountChat(lang){
+    var d = I18N[lang] || I18N.de;
+    var el = document.getElementById("chat-embed");
+    if(el) el.innerHTML = "";
+    if(!chatModulePromise){
+      chatModulePromise = import("https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js");
+    }
+    chatModulePromise.then(function(m){
+      m.createChat({
+        webhookUrl: WEBHOOK,
+        mode: "fullscreen",
+        target: "#chat-embed",
+        showWelcomeScreen: false,
+        loadPreviousSession: true,
+        initialMessages: [d.cw_m1, d.cw_m2],
+        i18n: { en: { title:d.cw_title, subtitle:d.cw_sub, footer:"", getStarted:d.cw_get, inputPlaceholder:d.cw_input, closeButtonTooltip:"" } }
+      });
+    });
+  }
+
+  function setLang(lang){
+    var d = I18N[lang]; if(!d) return;
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function(node){
+      var key = node.getAttribute("data-i18n");
+      if(d[key] !== undefined) node.textContent = d[key];
+    });
+    document.querySelectorAll(".lang-btn").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+    try{ localStorage.setItem("tk_lang", lang); }catch(e){}
+    mountChat(lang);
+  }
+
+  document.querySelectorAll(".lang-btn").forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); });
+  });
+
+  var start = "de";
+  try{ var s = localStorage.getItem("tk_lang"); if(s && I18N[s]) start = s; }catch(e){}
+  setLang(start);
+</script>
+<script>
+  (function(){
+    var floaters = document.getElementById("floaters");
+    var chat = document.getElementById("chat");
+    if(floaters && chat && "IntersectionObserver" in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ floaters.classList.toggle("hide", e.isIntersecting); });
+      }, { threshold: 0.25 });
+      io.observe(chat);
+    }
+
+    // Verhindert, dass die Seite beim Tippen/Senden im eingebetteten Chat wegscrollt
+    var embed = document.getElementById("chat-embed");
+    if(embed){
+      var lockY = null, preY = null;
+      function mark(){ preY = window.scrollY; }
+      embed.addEventListener("mousedown", mark, true);
+      embed.addEventListener("touchstart", mark, {capture:true, passive:true});
+      embed.addEventListener("focusin", function(){ lockY = (preY !== null ? preY : window.scrollY); });
+      embed.addEventListener("focusout", function(){
+        setTimeout(function(){ if(!embed.contains(document.activeElement)){ lockY = null; preY = null; } }, 60);
+      });
+      window.addEventListener("scroll", function(){
+        if(lockY !== null && Math.abs(window.scrollY - lockY) > 1){
+          var b = document.documentElement.style.scrollBehavior;
+          document.documentElement.style.scrollBehavior = "auto";
+          window.scrollTo(0, lockY);
+          document.documentElement.style.scrollBehavior = b;
+        }
+      }, {passive:true});
+    }
+  })();
+</script>
+</body>
+</html>
