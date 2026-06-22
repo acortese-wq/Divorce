@@ -203,9 +203,16 @@
 
     <div class="disc" data-i18n="disc">Bitte beachten Sie, dass mit der Rücksendung dieses Formulars kein Mandatsverhältnis zustande kommt. Es erfolgt zunächst eine Prüfung auf mögliche Interessenkonflikte. Ein Mandatsverhältnis entsteht erst mit ausdrücklicher Annahme durch Fabienne Law oder durch die erstmalige Erbringung einer Beratungsleistung.</div>
 
+    <div class="consent" style="margin:18px 2px 0">
+      <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:.92rem;line-height:1.5">
+        <input type="checkbox" id="consent" style="margin-top:4px;flex:none;width:16px;height:16px;cursor:pointer">
+        <span data-i18n="consent_label">Ich habe die Datenschutzhinweise gelesen und willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden.</span>
+      </label>
+    </div>
+
     <div class="actions">
-      <button type="button" class="btn" id="pdfBtn" data-i18n="btn_pdf">Als PDF erstellen</button>
-      <span class="hint" data-i18n="btn_hint">Tipp: Wählen Sie im Druckdialog „Als PDF speichern".</span>
+      <button type="button" class="btn" id="pdfBtn" data-i18n="btn_pdf" disabled>Als PDF erstellen</button>
+      <span class="hint" id="formMsg" data-i18n="btn_hint">Tipp: Wählen Sie im Druckdialog „Als PDF speichern".</span>
     </div>
   </form>
 </div>
@@ -244,7 +251,7 @@
       q_pension:"Ungefähre Guthaben in Ihrer Pensionskasse (2. Säule) und in der schweizerischen Pensionskasse der/des Ehepartner(in)?",
       q_pension_foreign:"Bestehen weitere Vorsorgeansprüche ausserhalb der Schweiz?",
       disc:"Bitte beachten Sie, dass mit der Rücksendung dieses Formulars kein Mandatsverhältnis zustande kommt. Es erfolgt zunächst eine Prüfung auf mögliche Interessenkonflikte. Ein Mandatsverhältnis entsteht erst mit ausdrücklicher Annahme durch Fabienne Law oder durch die erstmalige Erbringung einer Beratungsleistung.",
-      btn_pdf:"Als PDF erstellen",btn_hint:"Tipp: Wählen Sie im Druckdialog „Als PDF speichern“.",pr_title:"Mandatsanfrage"},
+      btn_pdf:"Als PDF erstellen",btn_hint:"Tipp: Wählen Sie im Druckdialog „Als PDF speichern“.",pr_title:"Mandatsanfrage",consent_label:"Ich habe die Datenschutzhinweise gelesen und willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden.",msg_sending:"Wird gesendet …",msg_saved:"Gespeichert – das PDF wird erstellt.",msg_error:"Speichern nicht möglich. Bitte später erneut versuchen."},
 
     en:{nav_home:"Back to start",eyebrow:"First contact",pg_h1:"Preliminary Information Form",
       pg_intro:"Please complete the form and create a PDF at the end that you can send to the law firm. Approximate figures are sufficient; leave fields that do not apply blank.",
@@ -275,7 +282,7 @@
       q_pension:"Approximate balances in your pension fund (2nd pillar) and in the spouse’s Swiss pension fund?",
       q_pension_foreign:"Are there any further pension entitlements outside Switzerland?",
       disc:"Please note that returning this form does not establish an attorney-client relationship. We will first conduct a conflict-of-interest check. An attorney-client relationship is only established upon explicit acceptance by Fabienne Law or upon the provision of an initial legal consultation.",
-      btn_pdf:"Create PDF",btn_hint:"Tip: choose ‘Save as PDF’ in the print dialog.",pr_title:"Preliminary Information Form"},
+      btn_pdf:"Create PDF",btn_hint:"Tip: choose ‘Save as PDF’ in the print dialog.",pr_title:"Preliminary Information Form",consent_label:"I have read the privacy notice and consent to my data being stored to process my request.",msg_sending:"Sending …",msg_saved:"Saved – generating the PDF.",msg_error:"Could not save. Please try again later."},
 
     fr:{nav_home:"Retour à l’accueil",eyebrow:"Premier contact",pg_h1:"Demande de mandat",
       pg_intro:"Veuillez remplir le formulaire puis créer un PDF que vous pourrez transmettre à l’étude. Des indications approximatives suffisent ; laissez vides les champs qui ne s’appliquent pas.",
@@ -306,7 +313,7 @@
       q_pension:"Avoirs approximatifs de votre caisse de pension (2e pilier) et de la caisse suisse du conjoint/de la conjointe ?",
       q_pension_foreign:"Existe-t-il d’autres droits de prévoyance hors de Suisse ?",
       disc:"Veuillez noter que l’envoi de ce formulaire ne crée aucun mandat. Une vérification des conflits d’intérêts est d’abord effectuée. Un mandat ne naît qu’avec l’acceptation expresse par Fabienne Law ou la fourniture d’une première prestation de conseil.",
-      btn_pdf:"Créer le PDF",btn_hint:"Astuce : choisissez « Enregistrer au format PDF » dans la boîte d’impression.",pr_title:"Demande de mandat"},
+      btn_pdf:"Créer le PDF",btn_hint:"Astuce : choisissez « Enregistrer au format PDF » dans la boîte d’impression.",pr_title:"Demande de mandat",consent_label:"J’ai lu les informations sur la protection des données et je consens à l’enregistrement de mes données pour le traitement de ma demande.",msg_sending:"Envoi …",msg_saved:"Enregistré – génération du PDF.",msg_error:"Enregistrement impossible. Veuillez réessayer plus tard."},
 
     it:{nav_home:"Torna alla home",eyebrow:"Primo contatto",pg_h1:"Richiesta di mandato",
       pg_intro:"Si prega di compilare il modulo e di creare alla fine un PDF da inviare allo studio legale. Sono sufficienti indicazioni approssimative; lasciare vuoti i campi non pertinenti.",
@@ -337,7 +344,7 @@
       q_pension:"Averi approssimativi della sua cassa pensioni (2° pilastro) e della cassa svizzera del coniuge?",
       q_pension_foreign:"Esistono altri diritti di previdenza fuori dalla Svizzera?",
       disc:"Si prega di notare che l’invio di questo modulo non instaura alcun mandato. Viene dapprima effettuata una verifica dei conflitti di interesse. Il mandato sorge solo con l’accettazione esplicita da parte di Fabienne Law o con la prima prestazione di consulenza.",
-      btn_pdf:"Crea PDF",btn_hint:"Suggerimento: scegliere « Salva come PDF » nella finestra di stampa.",pr_title:"Richiesta di mandato"},
+      btn_pdf:"Crea PDF",btn_hint:"Suggerimento: scegliere « Salva come PDF » nella finestra di stampa.",pr_title:"Richiesta di mandato",consent_label:"Ho letto l’informativa sulla protezione dei dati e acconsento alla memorizzazione dei miei dati per l’elaborazione della mia richiesta.",msg_sending:"Invio …",msg_saved:"Salvato – creazione del PDF.",msg_error:"Salvataggio non riuscito. Riprovare più tardi."},
 
     ru:{nav_home:"На главную",eyebrow:"Первичный контакт",pg_h1:"Запрос на правовое поручение",
       pg_intro:"Пожалуйста, заполните форму и в конце создайте PDF, который вы сможете направить в адвокатскую контору. Достаточно приблизительных данных; неприменимые поля оставьте пустыми.",
@@ -368,7 +375,7 @@
       q_pension:"Примерные накопления в вашей пенсионной кассе (2-я ступень) и в швейцарской пенсионной кассе супруга/супруги?",
       q_pension_foreign:"Имеются ли иные пенсионные права за пределами Швейцарии?",
       disc:"Обратите внимание, что отправка этой формы не создаёт договорных отношений с адвокатом. Сначала проводится проверка на конфликт интересов. Отношения возникают только после явного согласия Fabienne Law или после первой консультационной услуги.",
-      btn_pdf:"Создать PDF",btn_hint:"Совет: в окне печати выберите «Сохранить как PDF».",pr_title:"Запрос на правовое поручение"}
+      btn_pdf:"Создать PDF",btn_hint:"Совет: в окне печати выберите «Сохранить как PDF».",pr_title:"Запрос на правовое поручение",consent_label:"Я ознакомился(лась) с информацией о защите данных и даю согласие на сохранение моих данных для обработки запроса.",msg_sending:"Отправка …",msg_saved:"Сохранено — создаётся PDF.",msg_error:"Не удалось сохранить. Попробуйте позже."}
   };
 
   function setLang(lang){
@@ -426,9 +433,44 @@
     document.getElementById("printsheet").innerHTML = html;
   }
 
-  document.getElementById("pdfBtn").addEventListener("click", function(){
-    buildSheet();
-    window.print();
+  var WEBHOOK = "https://cortese.app.n8n.cloud/webhook/tk-mandat-intake";
+  var consentBox = document.getElementById("consent");
+  var pdfBtn = document.getElementById("pdfBtn");
+  var formMsg = document.getElementById("formMsg");
+  function msg(key){ var lang=document.documentElement.lang||"de"; var d=I18N[lang]||I18N.de; return d[key]||""; }
+  function syncBtn(){ pdfBtn.disabled = !consentBox.checked; }
+  consentBox.addEventListener("change", syncBtn); syncBtn();
+
+  function collect(){
+    var data = {};
+    document.querySelectorAll("[data-k]").forEach(function(el){
+      if(el.offsetParent === null) return;
+      data[el.getAttribute("data-k")] = (el.value||"").trim();
+    });
+    var married = document.body.className.indexOf("married")>-1 && document.body.className.indexOf("unmarried")===-1;
+    data.status = married ? "married" : "unmarried";
+    data.lang = document.documentElement.lang || "de";
+    data.einwilligung = true;
+    return data;
+  }
+
+  pdfBtn.addEventListener("click", function(){
+    if(!consentBox.checked) return;
+    pdfBtn.disabled = true;
+    formMsg.textContent = msg("msg_sending");
+    fetch(WEBHOOK, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(collect()) })
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(res && res.ok){
+          formMsg.textContent = msg("msg_saved");
+          buildSheet();
+          window.print();
+        } else {
+          formMsg.textContent = msg("msg_error");
+        }
+        pdfBtn.disabled = false;
+      })
+      .catch(function(){ formMsg.textContent = msg("msg_error"); pdfBtn.disabled = false; });
   });
 
   var start = "de";
