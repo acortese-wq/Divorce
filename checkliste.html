@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Checkliste Trennung & Scheidung – Trennungskompass</title>
+<meta name="description" content="Umfassende Checkliste zu Trennung und Scheidung in der Schweiz. Abhaken und als PDF speichern. Allgemeine Orientierung, keine Rechtsberatung." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:wght@400;500;600&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#d2382b;--red-deep:#b32d22;--ink:#1c1c1c;--gray:#565656;--muted:#6f6f6f;
+    --line:#e4e4e4;--display:'Playfair Display',Georgia,serif;--serif:'Lora',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--serif);color:var(--ink);background:#faf9f7;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+  h1,h2{font-family:var(--display)}
+
+  nav{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:16px;height:66px}
+  .brand{display:flex;align-items:center;text-decoration:none;font-family:var(--sans);font-size:1rem;letter-spacing:.07em;text-transform:uppercase}
+  .brand .bar{width:4px;height:19px;background:var(--red);margin-right:10px;border-radius:1px}
+  .brand b{color:var(--ink);font-weight:800}.brand span{color:#9c9c9c;font-weight:600}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+  .langs{display:flex;gap:2px}
+  .lang-btn{font-family:var(--sans);border:0;background:transparent;color:#8a8a8a;font-size:.76rem;font-weight:600;letter-spacing:.04em;cursor:pointer;padding:6px 8px;border-radius:3px}
+  .lang-btn:hover{color:var(--ink);background:#f1f1f1}
+  .lang-btn[aria-pressed="true"]{background:var(--red);color:#fff}
+  .home{font-family:var(--sans);font-size:.86rem;color:#4a4a4a;text-decoration:none;font-weight:500;white-space:nowrap}
+  .home:hover{color:var(--red)}
+
+  header.intro{padding:38px 0 6px}
+  .eyebrow{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+  h1{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;margin:12px 0 14px;color:var(--ink)}
+  .intro p{color:#4f4f4f;max-width:46em}
+  .privacy{display:flex;gap:10px;align-items:flex-start;background:#f3f6f4;border:1px solid #dfe7e1;border-radius:6px;padding:13px 16px;margin-top:18px;font-size:.9rem;color:#3c4c42}
+
+  main{padding:14px 0 30px}
+  .sec{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 24px;margin:16px 0}
+  .sec-h{font-size:1.12rem;font-weight:600;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+  .sec-h::before{content:"";width:18px;height:2px;background:var(--red);flex:none}
+  .chk{display:flex;gap:11px;align-items:flex-start;padding:7px 0;cursor:pointer;line-height:1.5}
+  .chk input{position:absolute;opacity:0;width:0;height:0}
+  .box{width:17px;height:17px;border:1.5px solid #bdbdbd;border-radius:3px;flex:none;margin-top:3px;display:grid;place-items:center;transition:.12s}
+  .chk input:checked + .box{background:var(--red);border-color:var(--red)}
+  .box::after{content:"\2713";font-size:12px;line-height:1;color:#fff;opacity:0}
+  .chk input:checked + .box::after{opacity:1}
+  .chk .tx{font-size:1rem;color:#2a2a2a}
+  .chk input:focus-visible + .box{outline:3px solid rgba(210,56,43,.4);outline-offset:2px}
+
+  .disc{background:#fbf1ef;border:1px solid #f0d9d5;border-radius:6px;padding:16px 18px;margin:20px 0;font-size:.9rem;color:#7d4339}
+  .actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 16px;margin-top:6px}
+  .btn{font-family:var(--sans);font-weight:600;font-size:.84rem;letter-spacing:.05em;text-transform:uppercase;border:0;border-radius:3px;cursor:pointer;padding:14px 28px;background:var(--red);color:#fff;text-decoration:none;transition:.18s}
+  .btn:hover{background:var(--red-deep)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--ink);background:#fff}
+  .reset{font-family:var(--sans);font-size:.82rem;color:var(--muted);background:none;border:0;cursor:pointer;text-decoration:underline}
+  .hint{font-family:var(--sans);font-size:.84rem;color:var(--muted);flex-basis:100%}
+
+  /* Druck / PDF */
+  .print-head{display:none}
+  @media print{
+    nav,.privacy,.actions,.intro,.print-hide{display:none!important}
+    .print-head{display:block;border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:14px;font-family:Georgia,serif;color:#000}
+    .print-head .pb{font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#444}
+    .print-head .pb .bar{display:inline-block;width:3px;height:11px;background:#d2382b;margin-right:6px;vertical-align:-1px}
+    .print-head .pb b{color:#000}
+    .print-head h2{font-family:Georgia,serif;font-size:20px;margin:6px 0 2px}
+    .print-head .pm{font-family:Arial,sans-serif;font-size:11px;color:#444}
+    main{padding:0}
+    .sec{border:0;border-radius:0;padding:0;margin:0 0 12px;break-inside:avoid}
+    .sec-h{font-family:Georgia,serif;font-size:13px;border-bottom:1px solid #bbb;padding-bottom:3px;margin-bottom:6px}
+    .sec-h::before{display:none}
+    .chk{padding:3px 0;gap:8px}
+    .box{width:12px;height:12px;border:1.2px solid #000;margin-top:2px}
+    .chk input:checked + .box{background:#fff;border-color:#000}
+    .box::after{color:#000;font-weight:bold;font-size:10px}
+    .chk .tx{font-family:Georgia,serif;font-size:11.5px;color:#000}
+    .disc{font-family:Arial,sans-serif;font-size:9.5px;color:#333;background:none;border:0;border-top:1px solid #bbb;border-radius:0;padding:8px 0 0;margin-top:10px}
+    @page{margin:14mm}
+    body{background:#fff}
+  }
+  @media (max-width:560px){ .nav-right .home{display:none} }
+</style>
+</head>
+<body>
+
+<nav class="print-hide">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><span class="bar"></span><b>Trennungs</b><span>kompass</span></a>
+    <div class="nav-right">
+      <div class="langs" role="group" aria-label="Sprache / Language">
+        <button class="lang-btn" data-lang="de" aria-pressed="true">DE</button>
+        <button class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        <button class="lang-btn" data-lang="it" aria-pressed="false">IT</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a class="home" href="index.html" data-i18n="nav_home">Zur Startseite</a>
+    </div>
+  </div>
+</nav>
+
+<header class="intro">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="eyebrow">Standortbestimmung</span>
+    <h1 data-i18n="pg_h1">Checkliste: Trennung & Scheidung in der Schweiz</h1>
+    <p data-i18n="pg_intro">Eine umfassende Orientierung über alle wichtigen Punkte. Haken Sie ab, was erledigt oder geklärt ist, und speichern Sie die Liste als PDF. Allgemeine Orientierung – keine Rechtsberatung.</p>
+    <div class="privacy">
+      <span aria-hidden="true">&#128274;</span>
+      <span data-i18n="privacy">Ihre Häkchen bleiben auf Ihrem Gerät. Es wird nur ein PDF erzeugt – es werden keine Daten an einen Server gesendet.</span>
+    </div>
+  </div>
+</header>
+
+<div class="print-head">
+  <div class="pb"><span class="bar"></span><b>Trennungs</b>kompass</div>
+  <h2 data-i18n="pr_title">Checkliste: Trennung & Scheidung in der Schweiz</h2>
+  <div class="pm"><span id="pdate"></span></div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s1">Erste Schritte & Sicherheit</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="a1">Klären: Trennung (Getrenntleben) oder Scheidung – und einvernehmlich oder strittig.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="a2">Scheidungsform: gemeinsames Begehren oder Klage nach 2 Jahren Getrenntleben (Ausnahme: Unzumutbarkeit).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="a3">Verfahrensweg prüfen: am Küchentisch, Mediation, kooperatives Verfahren (CLP) oder vor Gericht; frühzeitig beraten lassen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="a4">Bei Gewalt oder Notlage: Opferhilfe Schweiz (Tel. 143), Notruf 112, Polizei 117; Wegweisung/Rayon-/Kontaktverbot möglich.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="a5">Bei Gefahr der Vermögensverschiebung: sichernde Massnahmen beim Gericht prüfen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="a6">Eigenes Konto sichern; wichtige Unterlagen kopieren.</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s2">Wichtige Dokumente beschaffen</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="b1">Familienausweis/Eheschein, Ausweis/Pass, Aufenthaltsbewilligung.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="b2">Aktuelle Steuererklärung und Veranlagung.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="b3">Lohnausweise/Einkommensnachweise beider Personen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="b4">Vorsorgeausweise (2. Säule) und Säule-3a-Unterlagen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="b5">Versicherungspolicen (Kranken, Haftpflicht, Hausrat, Leben, Unfall).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="b6">Ehevertrag sowie frühere Vereinbarungen oder Urteile.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="b7">Belege zu Vermögen, Schulden, Immobilien und Kinderbetreuungskosten.</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s3">Kinder</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="c1">Elterliche Sorge (in der Regel gemeinsam) regeln.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="c2">Obhut und Betreuungsmodell festlegen (Wohnort, Betreuungsanteile).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="c3">Persönlicher Verkehr: Besuchs- und Ferienregelung.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="c4">Kindesunterhalt inklusive Betreuungsunterhalt klären.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="c5">Familien-/Kinderzulagen und Krankenkasse der Kinder regeln.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="c6">Kindeswohl in den Vordergrund stellen; bei Bedarf Fachberatung.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="c7">Bei Auslandbezug: Zustimmung zu Wohnsitzwechsel oder Reisen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="c8">Betreuung schriftlich in einer Elternvereinbarung festhalten.</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s4">Finanzen & Unterhalt</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="d1">Einkommen und monatlichen Bedarf beider Seiten erfassen (Budget).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="d2">Gemeinsame Konten, Vollmachten und Daueraufträge prüfen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="d3">Schulden (gemeinsam und einzeln) auflisten; Haftung klären.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="d4">Ehegattenunterhalt (während Trennung und nachehelich, Art. 125) – Faktoren klären.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="d5">Bisher geleistete Unterhaltszahlungen oder Leistungen festhalten.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="d6">Eigenversorgung nach der Scheidung realistisch einschätzen (mögliche Erwerbsobliegenheit).</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s5">Güterrecht & Vermögen</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="e1">Güterstand klären (Regel: Errungenschaftsbeteiligung; abweichend per Ehevertrag).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="e2">Eigengut von Errungenschaft trennen (Eingebrachtes, Erbschaft, Schenkung).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="e3">Vermögenswerte auflisten: Konten, Wertschriften, Fahrzeuge, Wertsachen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="e4">Immobilien und Unternehmen bewerten lassen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="e5">Stichtag für die Gütertrennung beachten.</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s6">Wohnen & Hausrat</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="f1">Mietwohnung: wer bleibt; Vertragsübertragung oder Kündigung.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="f2">Wohneigentum: Übernahme, Verkauf oder Hypothek klären.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="f3">Hausrat fair aufteilen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="f4">Adressänderung und Ummeldung bei der Einwohnerkontrolle.</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s7">Vorsorge & Versicherungen</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="g1">Berufliche Vorsorge (2. Säule): Vorsorgeausgleich (Art. 122 ff.).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="g2">Säule 3a prüfen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="g3">AHV: nach der Scheidung Splitting und Erziehungsgutschriften beantragen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="g4">Krankenkasse trennen (KVG/VVG); Prämienverbilligung prüfen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="g5">Weitere Versicherungen anpassen (Haftpflicht, Hausrat, Leben, Unfall).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="g6">Begünstigungen in Vorsorge und Lebensversicherung aktualisieren.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="g7">Nach Rechtskraft den tatsächlichen Pensionskassen-Übertrag (Vorsorgeausgleich) vollziehen und prüfen.</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s8">Administration & Erbrecht</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="h1">Bank: gemeinsame Karten, E-Banking und Vollmachten trennen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="h2">Verträge und Abos prüfen (Telefon, Strom, Streaming, Vereine).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="h3">Arbeitgeber informieren (Zulagen, Vorsorge).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="h4">Steuern: ab Trennung getrennte Veranlagung; neue Situation klären.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="h5">Testament/Erbvertrag/Vorsorgeauftrag prüfen (Erbrecht der Ehegatten entfällt mit Rechtskraft, Art. 120).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="h6">Allfällige Namensänderung klären (z. B. Ledignamen wieder annehmen).</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s9">Verfahren & nächste Schritte</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="i1">Zuständiges Gericht am Wohnsitz; kantonale Besonderheiten prüfen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="i2">Scheidungskonvention regelt: Sorge/Betreuung, Unterhalt, Wohnung, Güter, Vorsorge.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="i3">Eheschutz oder vorsorgliche Massnahmen während der Trennung prüfen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="i4">Fristen beachten (z. B. 2 Jahre Getrenntleben bei strittiger Scheidung).</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="i5">Kosten einplanen (Gericht und Anwalt); ggf. unentgeltliche Rechtspflege beantragen.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="i6">Bei Auslandbezug: Zuständigkeit und anwendbares Recht (IPRG) klären.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="i7">Scheidungsurteil und -urkunde dauerhaft aufbewahren.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="i8">Rechtskraftbestätigung des Scheidungsurteils einholen (wichtig für Pensionskasse, Ämter, Ausland).</span></label>
+    </div>
+
+    <div class="sec">
+      <div class="sec-h" data-i18n="s10">Unterstützung</div>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="j1">Offene Fragen im Chat (Trennungskompass) klären.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="j2">Für die individuelle rechtliche Abklärung: FaBolz Legal AI.</span></label>
+      <label class="chk"><input type="checkbox"><span class="box"></span><span class="tx" data-i18n="j3">Mandatsanfrage ausfüllen, wenn anwaltliche Vertretung gewünscht.</span></label>
+    </div>
+
+    <div class="disc" data-i18n="disc">Diese Checkliste ist eine allgemeine Orientierung und keine Rechtsberatung. Sie ersetzt nicht die Beurteilung durch eine Anwältin/einen Anwalt oder das Gericht. Je nach Kanton und Einzelfall können weitere Punkte hinzukommen. Gesetzesartikel (ZGB) dienen nur der groben Orientierung.</div>
+
+    <div class="actions print-hide">
+      <button type="button" class="btn" id="pdfBtn" data-i18n="btn_pdf">Als PDF speichern</button>
+      <a class="btn btn-ghost" href="mandatsanfrage.html" data-i18n="btn_mandat">Zur Mandatsanfrage</a>
+      <button type="button" class="reset" id="resetBtn" data-i18n="btn_reset">Alle Häkchen zurücksetzen</button>
+      <span class="hint" data-i18n="btn_hint">Tipp: Wählen Sie im Druckdialog „Als PDF speichern".</span>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  var I18N = {
+    de:{nav_home:"Zur Startseite",eyebrow:"Standortbestimmung",pg_h1:"Checkliste: Trennung & Scheidung in der Schweiz",pr_title:"Checkliste: Trennung & Scheidung in der Schweiz",
+      pg_intro:"Eine umfassende Orientierung über alle wichtigen Punkte. Haken Sie ab, was erledigt oder geklärt ist, und speichern Sie die Liste als PDF. Allgemeine Orientierung – keine Rechtsberatung.",
+      privacy:"Ihre Häkchen bleiben auf Ihrem Gerät. Es wird nur ein PDF erzeugt – es werden keine Daten an einen Server gesendet.",
+      s1:"Erste Schritte & Sicherheit",s2:"Wichtige Dokumente beschaffen",s3:"Kinder",s4:"Finanzen & Unterhalt",s5:"Güterrecht & Vermögen",s6:"Wohnen & Hausrat",s7:"Vorsorge & Versicherungen",s8:"Administration & Erbrecht",s9:"Verfahren & nächste Schritte",s10:"Unterstützung",
+      a1:"Klären: Trennung (Getrenntleben) oder Scheidung – und einvernehmlich oder strittig.",a2:"Scheidungsform: gemeinsames Begehren oder Klage nach 2 Jahren Getrenntleben (Ausnahme: Unzumutbarkeit).",a3:"Verfahrensweg prüfen: am Küchentisch, Mediation, kooperatives Verfahren (CLP) oder vor Gericht; frühzeitig beraten lassen.",a4:"Bei Gewalt oder Notlage: Opferhilfe Schweiz (Tel. 143), Notruf 112, Polizei 117; Wegweisung/Rayon-/Kontaktverbot möglich.",a5:"Bei Gefahr der Vermögensverschiebung: sichernde Massnahmen beim Gericht prüfen.",a6:"Eigenes Konto sichern; wichtige Unterlagen kopieren.",
+      b1:"Familienausweis/Eheschein, Ausweis/Pass, Aufenthaltsbewilligung.",b2:"Aktuelle Steuererklärung und Veranlagung.",b3:"Lohnausweise/Einkommensnachweise beider Personen.",b4:"Vorsorgeausweise (2. Säule) und Säule-3a-Unterlagen.",b5:"Versicherungspolicen (Kranken, Haftpflicht, Hausrat, Leben, Unfall).",b6:"Ehevertrag sowie frühere Vereinbarungen oder Urteile.",b7:"Belege zu Vermögen, Schulden, Immobilien und Kinderbetreuungskosten.",
+      c1:"Elterliche Sorge (in der Regel gemeinsam) regeln.",c2:"Obhut und Betreuungsmodell festlegen (Wohnort, Betreuungsanteile).",c3:"Persönlicher Verkehr: Besuchs- und Ferienregelung.",c4:"Kindesunterhalt inklusive Betreuungsunterhalt klären.",c5:"Familien-/Kinderzulagen und Krankenkasse der Kinder regeln.",c6:"Kindeswohl in den Vordergrund stellen; bei Bedarf Fachberatung.",c7:"Bei Auslandbezug: Zustimmung zu Wohnsitzwechsel oder Reisen.",c8:"Betreuung schriftlich in einer Elternvereinbarung festhalten.",
+      d1:"Einkommen und monatlichen Bedarf beider Seiten erfassen (Budget).",d2:"Gemeinsame Konten, Vollmachten und Daueraufträge prüfen.",d3:"Schulden (gemeinsam und einzeln) auflisten; Haftung klären.",d4:"Ehegattenunterhalt (während Trennung und nachehelich, Art. 125) – Faktoren klären.",d5:"Bisher geleistete Unterhaltszahlungen oder Leistungen festhalten.",d6:"Eigenversorgung nach der Scheidung realistisch einschätzen (mögliche Erwerbsobliegenheit).",
+      e1:"Güterstand klären (Regel: Errungenschaftsbeteiligung; abweichend per Ehevertrag).",e2:"Eigengut von Errungenschaft trennen (Eingebrachtes, Erbschaft, Schenkung).",e3:"Vermögenswerte auflisten: Konten, Wertschriften, Fahrzeuge, Wertsachen.",e4:"Immobilien und Unternehmen bewerten lassen.",e5:"Stichtag für die Gütertrennung beachten.",
+      f1:"Mietwohnung: wer bleibt; Vertragsübertragung oder Kündigung.",f2:"Wohneigentum: Übernahme, Verkauf oder Hypothek klären.",f3:"Hausrat fair aufteilen.",f4:"Adressänderung und Ummeldung bei der Einwohnerkontrolle.",
+      g1:"Berufliche Vorsorge (2. Säule): Vorsorgeausgleich (Art. 122 ff.).",g2:"Säule 3a prüfen.",g3:"AHV: nach der Scheidung Splitting und Erziehungsgutschriften beantragen.",g4:"Krankenkasse trennen (KVG/VVG); Prämienverbilligung prüfen.",g5:"Weitere Versicherungen anpassen (Haftpflicht, Hausrat, Leben, Unfall).",g6:"Begünstigungen in Vorsorge und Lebensversicherung aktualisieren.",g7:"Nach Rechtskraft den tatsächlichen Pensionskassen-Übertrag (Vorsorgeausgleich) vollziehen und prüfen.",
+      h1:"Bank: gemeinsame Karten, E-Banking und Vollmachten trennen.",h2:"Verträge und Abos prüfen (Telefon, Strom, Streaming, Vereine).",h3:"Arbeitgeber informieren (Zulagen, Vorsorge).",h4:"Steuern: ab Trennung getrennte Veranlagung; neue Situation klären.",h5:"Testament/Erbvertrag/Vorsorgeauftrag prüfen (Erbrecht der Ehegatten entfällt mit Rechtskraft, Art. 120).",h6:"Allfällige Namensänderung klären (z. B. Ledignamen wieder annehmen).",
+      i1:"Zuständiges Gericht am Wohnsitz; kantonale Besonderheiten prüfen.",i2:"Scheidungskonvention regelt: Sorge/Betreuung, Unterhalt, Wohnung, Güter, Vorsorge.",i3:"Eheschutz oder vorsorgliche Massnahmen während der Trennung prüfen.",i4:"Fristen beachten (z. B. 2 Jahre Getrenntleben bei strittiger Scheidung).",i5:"Kosten einplanen (Gericht und Anwalt); ggf. unentgeltliche Rechtspflege beantragen.",i6:"Bei Auslandbezug: Zuständigkeit und anwendbares Recht (IPRG) klären.",i7:"Scheidungsurteil und -urkunde dauerhaft aufbewahren.",i8:"Rechtskraftbestätigung des Scheidungsurteils einholen (wichtig für Pensionskasse, Ämter, Ausland).",
+      j1:"Offene Fragen im Chat (Trennungskompass) klären.",j2:"Für die individuelle rechtliche Abklärung: FaBolz Legal AI.",j3:"Mandatsanfrage ausfüllen, wenn anwaltliche Vertretung gewünscht.",
+      disc:"Diese Checkliste ist eine allgemeine Orientierung und keine Rechtsberatung. Sie ersetzt nicht die Beurteilung durch eine Anwältin/einen Anwalt oder das Gericht. Je nach Kanton und Einzelfall können weitere Punkte hinzukommen. Gesetzesartikel (ZGB) dienen nur der groben Orientierung.",
+      btn_pdf:"Als PDF speichern",btn_mandat:"Zur Mandatsanfrage",btn_reset:"Alle Häkchen zurücksetzen",btn_hint:"Tipp: Wählen Sie im Druckdialog „Als PDF speichern“."},
+
+    en:{nav_home:"Back to start",eyebrow:"Orientation",pg_h1:"Checklist: Separation & Divorce in Switzerland",pr_title:"Checklist: Separation & Divorce in Switzerland",
+      pg_intro:"A comprehensive overview of all key points. Tick off what is done or clarified and save the list as a PDF. General orientation – not legal advice.",
+      privacy:"Your ticks stay on your device. Only a PDF is generated – no data is sent to a server.",
+      s1:"First steps & safety",s2:"Gather key documents",s3:"Children",s4:"Finances & maintenance",s5:"Matrimonial property & assets",s6:"Housing & household goods",s7:"Pension & insurance",s8:"Administration & inheritance",s9:"Procedure & next steps",s10:"Support",
+      a1:"Clarify: separation (living apart) or divorce – and amicable or contested.",a2:"Type of divorce: joint request, or action after 2 years living apart (exception: unreasonableness).",a3:"Consider the route: at the kitchen table, mediation, collaborative practice (CLP) or in court; seek advice early.",a4:"In case of violence or emergency: Victim Support Switzerland (tel. 143), emergency 112, police 117; eviction/exclusion/contact ban possible.",a5:"If assets may be moved away: consider protective measures from the court.",a6:"Secure your own account; copy important documents.",
+      b1:"Family record/marriage certificate, ID/passport, residence permit.",b2:"Current tax return and assessment.",b3:"Salary statements/proof of income for both people.",b4:"Pension certificates (2nd pillar) and pillar 3a documents.",b5:"Insurance policies (health, liability, household, life, accident).",b6:"Prenuptial agreement and any earlier agreements or judgments.",b7:"Records of assets, debts, real estate and childcare costs.",
+      c1:"Arrange parental authority (usually joint).",c2:"Define custody and care model (residence, care shares).",c3:"Personal contact: visiting and holiday arrangements.",c4:"Clarify child maintenance, including care-related maintenance.",c5:"Arrange family/child allowances and the children's health insurance.",c6:"Put the child's welfare first; seek professional support if needed.",c7:"If there is a foreign element: consent for a change of residence or travel.",c8:"Set out the care arrangements in writing in a parenting agreement.",
+      d1:"Record income and monthly needs of both sides (budget).",d2:"Review joint accounts, powers of attorney and standing orders.",d3:"List debts (joint and individual); clarify liability.",d4:"Spousal maintenance (during separation and post-marital, Art. 125) – clarify the factors.",d5:"Record maintenance payments or support provided so far.",d6:"Realistically assess your own income capacity after the divorce (possible duty to work).",
+      e1:"Clarify the marital property regime (default: participation in acquired property; otherwise by prenuptial agreement).",e2:"Separate own property from acquired property (brought in, inheritance, gift).",e3:"List assets: accounts, securities, vehicles, valuables.",e4:"Have real estate and businesses valued.",e5:"Note the cut-off date for the division of property.",
+      f1:"Rented home: who stays; transfer or termination of the lease.",f2:"Home ownership: take-over, sale or mortgage to be clarified.",f3:"Divide household goods fairly.",f4:"Change of address and registration with the residents' office.",
+      g1:"Occupational pension (2nd pillar): pension equalisation (Art. 122 ff.).",g2:"Review pillar 3a.",g3:"AHV/AVS: after the divorce, apply for income splitting and childcare credits.",g4:"Separate health insurance (KVG/VVG); check premium reductions.",g5:"Adjust other insurance (liability, household, life, accident).",g6:"Update beneficiaries in pension and life insurance.",g7:"Once the divorce is final, carry out and check the actual pension-fund transfer (pension equalisation).",
+      h1:"Bank: separate joint cards, e-banking and powers of attorney.",h2:"Review contracts and subscriptions (phone, electricity, streaming, clubs).",h3:"Inform the employer (allowances, pension).",h4:"Taxes: separate assessment from separation; clarify the new situation.",h5:"Review will/inheritance contract/advance directive (spousal inheritance rights end when the divorce is final, Art. 120).",h6:"Clarify a possible change of name (e.g. taking back your maiden name).",
+      i1:"Competent court at the place of residence; check cantonal specifics.",i2:"The divorce agreement covers: custody/care, maintenance, housing, property, pension.",i3:"Consider marital protection or provisional measures during separation.",i4:"Mind the deadlines (e.g. 2 years living apart for a contested divorce).",i5:"Budget for costs (court and lawyer); apply for legal aid if needed.",i6:"If there is a foreign element: clarify jurisdiction and applicable law (PILA).",i7:"Keep the divorce decree and certificate permanently.",i8:"Obtain confirmation that the divorce decree is final (needed for the pension fund, authorities, abroad).",
+      j1:"Clarify open questions in the chat (Trennungskompass).",j2:"For individual legal assessment: FaBolz Legal AI.",j3:"Fill in the intake form if you want legal representation.",
+      disc:"This checklist is general orientation and not legal advice. It does not replace assessment by a lawyer or the court. Depending on the canton and the individual case, further points may apply. Legal articles (Civil Code) are for rough orientation only.",
+      btn_pdf:"Save as PDF",btn_mandat:"To the intake form",btn_reset:"Reset all ticks",btn_hint:"Tip: choose ‘Save as PDF’ in the print dialog."},
+
+    fr:{nav_home:"Retour à l’accueil",eyebrow:"Orientation",pg_h1:"Check-list : séparation & divorce en Suisse",pr_title:"Check-list : séparation & divorce en Suisse",
+      pg_intro:"Un aperçu complet de tous les points importants. Cochez ce qui est fait ou clarifié et enregistrez la liste en PDF. Orientation générale – pas de conseil juridique.",
+      privacy:"Vos coches restent sur votre appareil. Seul un PDF est généré – aucune donnée n’est envoyée à un serveur.",
+      s1:"Premières démarches & sécurité",s2:"Réunir les documents importants",s3:"Enfants",s4:"Finances & entretien",s5:"Régime matrimonial & patrimoine",s6:"Logement & mobilier",s7:"Prévoyance & assurances",s8:"Administration & successions",s9:"Procédure & prochaines étapes",s10:"Soutien",
+      a1:"Clarifier : séparation (vie séparée) ou divorce – et à l’amiable ou litigieux.",a2:"Type de divorce : requête commune, ou action après 2 ans de vie séparée (exception : caractère insupportable).",a3:"Choisir la voie : à la table de cuisine, médiation, droit collaboratif (CLP) ou tribunal ; se faire conseiller tôt.",a4:"En cas de violence ou d’urgence : aide aux victimes Suisse (tél. 143), urgence 112, police 117 ; expulsion/interdiction de périmètre/de contact possibles.",a5:"En cas de risque de transfert de biens : envisager des mesures conservatoires auprès du tribunal.",a6:"Sécuriser son propre compte ; copier les documents importants.",
+      b1:"Livret de famille/acte de mariage, pièce d’identité/passeport, autorisation de séjour.",b2:"Déclaration et taxation fiscales actuelles.",b3:"Certificats de salaire/justificatifs de revenu des deux personnes.",b4:"Certificats de prévoyance (2e pilier) et documents du pilier 3a.",b5:"Polices d’assurance (maladie, RC, ménage, vie, accidents).",b6:"Contrat de mariage ainsi que conventions ou jugements antérieurs.",b7:"Justificatifs de patrimoine, dettes, immobilier et frais de garde des enfants.",
+      c1:"Régler l’autorité parentale (en règle générale conjointe).",c2:"Définir la garde et le modèle de prise en charge (domicile, parts de garde).",c3:"Relations personnelles : droit de visite et régime des vacances.",c4:"Clarifier l’entretien de l’enfant, y compris l’entretien lié à la prise en charge.",c5:"Régler les allocations familiales et l’assurance-maladie des enfants.",c6:"Mettre le bien de l’enfant au premier plan ; soutien spécialisé si nécessaire.",c7:"En cas d’élément international : accord pour un changement de domicile ou des voyages.",c8:"Consigner la prise en charge par écrit dans une convention parentale.",
+      d1:"Recenser les revenus et le besoin mensuel des deux parties (budget).",d2:"Vérifier les comptes communs, procurations et ordres permanents.",d3:"Lister les dettes (communes et individuelles) ; clarifier la responsabilité.",d4:"Entretien entre époux (pendant la séparation et après le divorce, art. 125) – clarifier les facteurs.",d5:"Consigner les contributions d’entretien ou prestations déjà versées.",d6:"Évaluer de manière réaliste sa capacité à subvenir à ses besoins après le divorce (obligation éventuelle de travailler).",
+      e1:"Clarifier le régime matrimonial (par défaut : participation aux acquêts ; sinon par contrat de mariage).",e2:"Séparer les biens propres des acquêts (apports, héritage, donation).",e3:"Lister les biens : comptes, titres, véhicules, objets de valeur.",e4:"Faire évaluer l’immobilier et les entreprises.",e5:"Tenir compte de la date déterminante pour la dissolution du régime.",
+      f1:"Logement loué : qui reste ; transfert ou résiliation du bail.",f2:"Propriété du logement : reprise, vente ou hypothèque à clarifier.",f3:"Partager équitablement le mobilier du ménage.",f4:"Changement d’adresse et annonce au contrôle des habitants.",
+      g1:"Prévoyance professionnelle (2e pilier) : partage de la prévoyance (art. 122 ss).",g2:"Examiner le pilier 3a.",g3:"AVS : après le divorce, demander le splitting et les bonifications pour tâches éducatives.",g4:"Séparer l’assurance-maladie (LAMal/LCA) ; vérifier la réduction des primes.",g5:"Adapter les autres assurances (RC, ménage, vie, accidents).",g6:"Mettre à jour les bénéficiaires de la prévoyance et de l’assurance-vie.",g7:"Une fois le divorce définitif, exécuter et vérifier le transfert effectif de la caisse de pension (partage de la prévoyance).",
+      h1:"Banque : séparer cartes communes, e-banking et procurations.",h2:"Vérifier contrats et abonnements (téléphone, électricité, streaming, associations).",h3:"Informer l’employeur (allocations, prévoyance).",h4:"Impôts : taxation séparée dès la séparation ; clarifier la nouvelle situation.",h5:"Vérifier testament/pacte successoral/mandat pour cause d’inaptitude (le droit successoral des époux s’éteint à l’entrée en force, art. 120).",h6:"Clarifier un éventuel changement de nom (p. ex. reprendre son nom de jeune fille).",
+      i1:"Tribunal compétent au domicile ; vérifier les particularités cantonales.",i2:"La convention de divorce règle : garde/prise en charge, entretien, logement, patrimoine, prévoyance.",i3:"Examiner les mesures protectrices de l’union conjugale ou les mesures provisionnelles pendant la séparation.",i4:"Respecter les délais (p. ex. 2 ans de vie séparée pour un divorce litigieux).",i5:"Prévoir les coûts (tribunal et avocat) ; demander l’assistance judiciaire si nécessaire.",i6:"En cas d’élément international : clarifier la compétence et le droit applicable (LDIP).",i7:"Conserver durablement le jugement et le certificat de divorce.",i8:"Obtenir l’attestation d’entrée en force du jugement de divorce (utile pour la caisse de pension, les autorités, l’étranger).",
+      j1:"Clarifier les questions ouvertes dans le chat (Trennungskompass).",j2:"Pour une analyse juridique individuelle : FaBolz Legal AI.",j3:"Remplir la demande de mandat si une représentation par avocat est souhaitée.",
+      disc:"Cette check-list est une orientation générale et non un conseil juridique. Elle ne remplace pas l’appréciation d’un·e avocat·e ou du tribunal. Selon le canton et le cas, d’autres points peuvent s’ajouter. Les articles de loi (CC) ne servent que d’orientation générale.",
+      btn_pdf:"Enregistrer en PDF",btn_mandat:"Vers la demande de mandat",btn_reset:"Réinitialiser les coches",btn_hint:"Astuce : choisissez « Enregistrer au format PDF » dans la boîte d’impression."},
+
+    it:{nav_home:"Torna alla home",eyebrow:"Orientamento",pg_h1:"Lista di controllo: separazione e divorzio in Svizzera",pr_title:"Lista di controllo: separazione e divorzio in Svizzera",
+      pg_intro:"Una panoramica completa di tutti i punti importanti. Spunti ciò che è fatto o chiarito e salvi l’elenco in PDF. Orientamento generale – non è una consulenza legale.",
+      privacy:"Le sue spunte restano sul suo dispositivo. Viene generato solo un PDF – nessun dato viene inviato a un server.",
+      s1:"Primi passi e sicurezza",s2:"Procurarsi i documenti importanti",s3:"Figli",s4:"Finanze e mantenimento",s5:"Regime dei beni e patrimonio",s6:"Abitazione e mobilia",s7:"Previdenza e assicurazioni",s8:"Amministrazione e successioni",s9:"Procedura e prossimi passi",s10:"Sostegno",
+      a1:"Chiarire: separazione (vita separata) o divorzio – e consensuale o contenzioso.",a2:"Tipo di divorzio: richiesta comune, o azione dopo 2 anni di vita separata (eccezione: insostenibilità).",a3:"Valutare la via: al tavolo di cucina, mediazione, diritto collaborativo (CLP) o tribunale; farsi consigliare per tempo.",a4:"In caso di violenza o emergenza: aiuto alle vittime Svizzera (tel. 143), emergenza 112, polizia 117; allontanamento/divieto di avvicinamento/di contatto possibili.",a5:"In caso di rischio di trasferimento di beni: valutare misure cautelari presso il tribunale.",a6:"Mettere al sicuro il proprio conto; copiare i documenti importanti.",
+      b1:"Atto di famiglia/certificato di matrimonio, documento/passaporto, permesso di soggiorno.",b2:"Dichiarazione e tassazione fiscale attuali.",b3:"Certificati di salario/prove di reddito di entrambe le persone.",b4:"Certificati di previdenza (2° pilastro) e documenti del pilastro 3a.",b5:"Polizze assicurative (malattia, responsabilità civile, economia domestica, vita, infortuni).",b6:"Convenzione matrimoniale e precedenti accordi o sentenze.",b7:"Documenti su patrimonio, debiti, immobili e costi di custodia dei figli.",
+      c1:"Regolare l’autorità parentale (di regola congiunta).",c2:"Definire la custodia e il modello di accudimento (domicilio, quote di cura).",c3:"Relazioni personali: diritto di visita e regime delle vacanze.",c4:"Chiarire il mantenimento del figlio, incluso il contributo di accudimento.",c5:"Regolare gli assegni familiari e la cassa malati dei figli.",c6:"Mettere il bene del figlio al primo posto; consulenza specialistica se necessario.",c7:"In caso di elemento internazionale: consenso per cambio di domicilio o viaggi.",c8:"Mettere per iscritto l’accudimento in un accordo parentale.",
+      d1:"Rilevare redditi e fabbisogno mensile di entrambe le parti (budget).",d2:"Verificare conti comuni, procure e ordini permanenti.",d3:"Elencare i debiti (comuni e individuali); chiarire la responsabilità.",d4:"Mantenimento tra coniugi (durante la separazione e dopo il divorzio, art. 125) – chiarire i fattori.",d5:"Annotare i contributi di mantenimento o le prestazioni già versate.",d6:"Valutare realisticamente il proprio sostentamento dopo il divorzio (eventuale obbligo di lavorare).",
+      e1:"Chiarire il regime dei beni (di norma: partecipazione agli acquisti; altrimenti per convenzione matrimoniale).",e2:"Separare i beni propri dagli acquisti (apporti, eredità, donazione).",e3:"Elencare i beni: conti, titoli, veicoli, oggetti di valore.",e4:"Far stimare immobili e aziende.",e5:"Tenere conto della data determinante per lo scioglimento del regime.",
+      f1:"Abitazione in affitto: chi resta; trasferimento o disdetta del contratto.",f2:"Proprietà dell’abitazione: subentro, vendita o ipoteca da chiarire.",f3:"Dividere equamente la mobilia.",f4:"Cambio d’indirizzo e notifica al controllo abitanti.",
+      g1:"Previdenza professionale (2° pilastro): conguaglio della previdenza (art. 122 segg.).",g2:"Verificare il pilastro 3a.",g3:"AVS: dopo il divorzio richiedere lo splitting e gli accrediti per compiti educativi.",g4:"Separare la cassa malati (LAMal/LCA); verificare la riduzione dei premi.",g5:"Adeguare le altre assicurazioni (RC, economia domestica, vita, infortuni).",g6:"Aggiornare i beneficiari della previdenza e dell’assicurazione vita.",g7:"Dopo il passaggio in giudicato, eseguire e verificare l’effettivo trasferimento della cassa pensioni (conguaglio della previdenza).",
+      h1:"Banca: separare carte comuni, e-banking e procure.",h2:"Verificare contratti e abbonamenti (telefono, elettricità, streaming, associazioni).",h3:"Informare il datore di lavoro (assegni, previdenza).",h4:"Imposte: tassazione separata dalla separazione; chiarire la nuova situazione.",h5:"Verificare testamento/contratto successorio/mandato precauzionale (il diritto successorio tra coniugi si estingue con il passaggio in giudicato, art. 120).",h6:"Chiarire un eventuale cambio di cognome (p. es. riprendere il cognome da nubile/celibe).",
+      i1:"Tribunale competente al domicilio; verificare le particolarità cantonali.",i2:"La convenzione sul divorzio regola: custodia/cura, mantenimento, abitazione, beni, previdenza.",i3:"Valutare misure a tutela dell’unione coniugale o misure cautelari durante la separazione.",i4:"Rispettare i termini (p. es. 2 anni di vita separata per un divorzio contenzioso).",i5:"Prevedere i costi (tribunale e avvocato); richiedere il gratuito patrocinio se necessario.",i6:"In caso di elemento internazionale: chiarire competenza e diritto applicabile (LDIP).",i7:"Conservare in modo permanente la sentenza e il certificato di divorzio.",i8:"Ottenere l’attestazione di passaggio in giudicato della sentenza (utile per cassa pensioni, autorità, estero).",
+      j1:"Chiarire le domande aperte nella chat (Trennungskompass).",j2:"Per una valutazione legale individuale: FaBolz Legal AI.",j3:"Compilare la richiesta di mandato se si desidera una rappresentanza legale.",
+      disc:"Questa lista di controllo è un orientamento generale e non una consulenza legale. Non sostituisce la valutazione di un avvocato o del tribunale. A seconda del Cantone e del caso possono aggiungersi altri punti. Gli articoli di legge (CC) servono solo da orientamento generale.",
+      btn_pdf:"Salva come PDF",btn_mandat:"Alla richiesta di mandato",btn_reset:"Azzera tutte le spunte",btn_hint:"Suggerimento: scegliere « Salva come PDF » nella finestra di stampa."},
+
+    ru:{nav_home:"На главную",eyebrow:"Ориентир",pg_h1:"Чек-лист: раздельное проживание и развод в Швейцарии",pr_title:"Чек-лист: раздельное проживание и развод в Швейцарии",
+      pg_intro:"Полный обзор всех важных пунктов. Отметьте то, что сделано или прояснено, и сохраните список в PDF. Общая ориентация – не юридическая консультация.",
+      privacy:"Ваши отметки остаются на вашем устройстве. Создаётся только PDF – никакие данные на сервер не отправляются.",
+      s1:"Первые шаги и безопасность",s2:"Собрать важные документы",s3:"Дети",s4:"Финансы и содержание",s5:"Имущественный режим и активы",s6:"Жильё и предметы быта",s7:"Пенсия и страхование",s8:"Администрирование и наследство",s9:"Процедура и следующие шаги",s10:"Поддержка",
+      a1:"Прояснить: раздельное проживание или развод – и по согласию или спорный.",a2:"Вид развода: совместное заявление или иск после 2 лет раздельного проживания (исключение: неприемлемость).",a3:"Выбрать путь: «за кухонным столом», медиация, совместная процедура (CLP) или суд; получить консультацию заранее.",a4:"При насилии или чрезвычайной ситуации: служба помощи жертвам (тел. 143), экстренный 112, полиция 117; возможны выселение/запрет приближения/контактов.",a5:"При риске вывода имущества: рассмотреть обеспечительные меры в суде.",a6:"Обеспечить собственный счёт; сделать копии важных документов.",
+      b1:"Свидетельство о браке/семейный документ, удостоверение/паспорт, вид на жительство.",b2:"Актуальная налоговая декларация и начисление.",b3:"Справки о зарплате/доходах обеих сторон.",b4:"Выписки пенсионной кассы (2-я ступень) и документы ступени 3a.",b5:"Страховые полисы (медицинское, гражданская ответственность, имущество, жизнь, несчастные случаи).",b6:"Брачный договор и прежние соглашения или решения.",b7:"Документы по активам, долгам, недвижимости и расходам на уход за детьми.",
+      c1:"Урегулировать родительскую ответственность (как правило, совместную).",c2:"Определить опеку и модель ухода (место проживания, доли ухода).",c3:"Личное общение: порядок посещений и каникул.",c4:"Прояснить алименты на ребёнка, включая алименты по уходу.",c5:"Урегулировать семейные/детские пособия и медицинское страхование детей.",c6:"Ставить благополучие ребёнка на первое место; при необходимости специализированная помощь.",c7:"При иностранном элементе: согласие на смену места жительства или поездки.",c8:"Зафиксировать порядок ухода письменно в родительском соглашении.",
+      d1:"Учесть доходы и ежемесячные потребности обеих сторон (бюджет).",d2:"Проверить совместные счета, доверенности и постоянные поручения.",d3:"Перечислить долги (общие и личные); прояснить ответственность.",d4:"Содержание супруга (во время раздельного проживания и после развода, ст. 125) – прояснить факторы.",d5:"Зафиксировать ранее выплаченные алименты или иные выплаты.",d6:"Реалистично оценить самообеспечение после развода (возможная обязанность работать).",
+      e1:"Прояснить имущественный режим (по умолчанию: участие в приобретённом имуществе; иначе по брачному договору).",e2:"Отделить собственное имущество от приобретённого (внесённое, наследство, дарение).",e3:"Перечислить активы: счета, ценные бумаги, транспорт, ценности.",e4:"Провести оценку недвижимости и предприятий.",e5:"Учесть дату, определяющую раздел имущества.",
+      f1:"Съёмное жильё: кто остаётся; перевод или расторжение договора.",f2:"Собственное жильё: переход, продажа или ипотека.",f3:"Справедливо разделить предметы быта.",f4:"Смена адреса и регистрация в бюро учёта жителей.",
+      g1:"Профессиональная пенсия (2-я ступень): выравнивание пенсионных накоплений (ст. 122 и далее).",g2:"Проверить ступень 3a.",g3:"AHV: после развода подать заявление на сплиттинг и воспитательные начисления.",g4:"Разделить медицинское страхование (KVG/VVG); проверить снижение взносов.",g5:"Скорректировать прочие страховки (ответственность, имущество, жизнь, несчастные случаи).",g6:"Обновить выгодоприобретателей в пенсии и страховании жизни.",g7:"После вступления решения в силу выполнить и проверить фактический перевод пенсионной кассы (выравнивание накоплений).",
+      h1:"Банк: разделить общие карты, e-banking и доверенности.",h2:"Проверить договоры и подписки (телефон, электричество, стриминг, клубы).",h3:"Уведомить работодателя (пособия, пенсия).",h4:"Налоги: раздельное начисление с момента раздельного проживания; прояснить новую ситуацию.",h5:"Проверить завещание/договор о наследовании/распоряжение на случай недееспособности (наследственные права супругов прекращаются со вступлением решения в силу, ст. 120).",h6:"Прояснить возможную смену фамилии (например, возврат девичьей фамилии).",
+      i1:"Компетентный суд по месту жительства; проверить кантональные особенности.",i2:"Соглашение о разводе регулирует: опеку/уход, содержание, жильё, имущество, пенсию.",i3:"Рассмотреть меры защиты брачного союза или обеспечительные меры во время раздельного проживания.",i4:"Соблюдать сроки (например, 2 года раздельного проживания при спорном разводе).",i5:"Предусмотреть расходы (суд и адвокат); при необходимости подать на бесплатную юридическую помощь.",i6:"При иностранном элементе: прояснить юрисдикцию и применимое право (IPRG).",i7:"Постоянно хранить решение и свидетельство о разводе.",i8:"Получить подтверждение вступления решения о разводе в силу (нужно для пенсионной кассы, ведомств, заграницы).",
+      j1:"Прояснить открытые вопросы в чате (Trennungskompass).",j2:"Для индивидуальной юридической оценки: FaBolz Legal AI.",j3:"Заполнить запрос мандата, если нужна юридическая представительство.",
+      disc:"Этот чек-лист является общей ориентацией, а не юридической консультацией. Он не заменяет оценку адвоката или суда. В зависимости от кантона и конкретного случая могут добавиться другие пункты. Статьи закона (ГК) служат лишь для общей ориентации.",
+      btn_pdf:"Сохранить как PDF",btn_mandat:"К запросу мандата",btn_reset:"Сбросить все отметки",btn_hint:"Совет: в окне печати выберите «Сохранить как PDF»."}
+  };
+
+  function fmtDate(lang){ try{ return new Date().toLocaleDateString(lang); }catch(e){ return new Date().toLocaleDateString(); } }
+
+  function setLang(lang){
+    var d = I18N[lang]; if(!d) return;
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function(n){
+      var k = n.getAttribute("data-i18n"); if(d[k] !== undefined) n.textContent = d[k];
+    });
+    document.querySelectorAll(".lang-btn").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+    var pd = document.getElementById("pdate"); if(pd) pd.textContent = fmtDate(lang);
+    document.title = d.pg_h1 + " – Trennungskompass";
+    try{ localStorage.setItem("tk_lang", lang); }catch(e){}
+  }
+  document.querySelectorAll(".lang-btn").forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); });
+  });
+
+  document.getElementById("pdfBtn").addEventListener("click", function(){ window.print(); });
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    document.querySelectorAll('.chk input[type="checkbox"]').forEach(function(c){ c.checked = false; });
+  });
+
+  var start = "de";
+  try{ var s = localStorage.getItem("tk_lang"); if(s && I18N[s]) start = s; }catch(e){}
+  setLang(start);
+</script>
+</body>
+</html>
